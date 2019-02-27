@@ -7,5 +7,5 @@ date_of_birth  : date                   # the date in YYYY-MM-DD
 sex            : enum ("M", "F", "U")
 %}
 
-classdef Animal < dj.Relvar
+classdef Animal < dj.Manual
 end
