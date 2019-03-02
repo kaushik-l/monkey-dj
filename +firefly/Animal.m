@@ -1,10 +1,10 @@
 %{
-firefly.Animal (manual)                 # all animals
-animal_name    : varchar(128)           # string name
+# Animal
+animal_name    : varchar(128)           # name as string
 -----
 # add additional attributes
-date_of_birth  : date                   # the date in YYYY-MM-DD
-sex            : enum ("M", "F", "U")
+dob  : date                   # the date in YYYY-MM-DD
+sex  : enum ("M", "F", "U")
 %}
 
 classdef Animal < dj.Manual

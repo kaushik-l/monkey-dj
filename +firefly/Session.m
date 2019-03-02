@@ -1,12 +1,12 @@
 %{
 # Recording sessions
 -> firefly.Animal
-date                         : date             # the date in YYYY-MM-DD
-session_id                   : varchar(128)     # string ID
+session_date                 : date             # the date in YYYY-MM-DD
+session_id                   : int              # session number as integer
 ---
 # add additional attributes
-experimente_name             : varchar(128)     # string name or enum????
-experimenter_name            : varchar(128)     # string ID
+experiment_name              : varchar(128)     # name as string
+experimenter_name            : varchar(128)     # name as string
 %}
 
 classdef Session < dj.Manual
