@@ -11,7 +11,7 @@ classdef Lfp < dj.Imported
         function makeTuples(self,key)
             sessionInfo = sessionLookup;
             session_ids = [sessionInfo.session_id]; animal_names = [sessionInfo.animal_name];            
-            mysession = sessionInfo(session_ids == key.session_id) & (animal_names == key.animal_name);
+            mysession = sessionInfo((session_ids == key.session_id) & (animal_names == key.animal_name));
             cd(mysession.folder);
         end
     end
