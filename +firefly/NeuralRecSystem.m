@@ -6,5 +6,5 @@ recsystem_name                 : varchar(128)
       
 %}
 
-classdef NeuralRecSystem < dj.Manual
+classdef Neuralrecsystem < dj.Manual
 end
