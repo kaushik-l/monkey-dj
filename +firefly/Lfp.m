@@ -11,17 +11,17 @@ classdef Lfp < dj.Imported
     methods(Access=protected)
         function makeTuples(self,key)
             sessionLookup;
-            session_ids = [sessionInfo.session_id]; 
-            animal_names = {sessionInfo.animal_name};            
+            session_ids = [sessionInfo.session_id];
+            animal_names = {sessionInfo.animal_name};
             mysession = sessionInfo((session_ids == key.session_id) & strcmp(animal_names, key.animal_name));
-            cd(['C:\Users\ok24\Documents\Data\firefly-monkey\' mysession.folder '\neural data']);             
+            cd(['C:\Users\ok24\Documents\Data\firefly-monkey\' mysession.folder '\neural data']);
             if strcmp(key.recsystem_name, 'Cereplex')
                 file_ns1=dir('*.ns1');
                 NS1 = openNSx(['/' file_ns1.name],'report','read', 'uV');
                 nchannels = size(NS1.Data,1);
                 for i=1:nchannels
                     key.channel_id = i;
-                    key.lfp_analytic = NS1.Data(i,1:1e5);
+                    key.lfp_analytic = NS1.Data(i,1:1*1e5);
                     self.insert(key);
                     sprintf('Populated LFP channel %d for experiment done on %s in animal %s',key.channel_id,key.session_date,key.animal_name);
                 end
