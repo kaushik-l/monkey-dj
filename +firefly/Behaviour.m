@@ -2,20 +2,25 @@
 -> firefly.Session
 ---
 # add additional attributes
-lefteye_horpos              : longblob     # data as array
-lefteye_verpos              : longblob     # data as array
-lefteye_torpos              : longblob     # data as array
-righteye_horpos              : longblob     # data as array
-righteye_verpos              : longblob     # data as array
-righteye_torpos              : longblob     # data as array
-eye_pupdia              : longblob     # data as array
-head_horpos             : longblob     # data as array
-head_verpos             : longblob     # data as array
-head_torpos             : longblob     # data as array
-joy_linvel              : longblob     # data as array
-joy_angvel              : longblob     # data as array
-hand_x                  : longblob     # data as array
-hand_y                  : longblob     # data as array
+leye_horpos=0               : longblob     # data as array
+leye_verpos=0               : longblob     # data as array
+leye_torpos=0               : longblob     # data as array
+reye_horpos=0               : longblob     # data as array
+reye_verpos=0               : longblob     # data as array
+reye_torpos=0               : longblob     # data as array
+pupildia=0                  : longblob     # data as array
+head_horpos=0               : longblob     # data as array
+head_verpos=0               : longblob     # data as array
+head_torpos=0               : longblob     # data as array
+joy_linvel=0                : longblob     # data as array
+joy_angvel=0                : longblob     # data as array
+hand_x=0                    : longblob     # data as array
+hand_y=0                    : longblob     # data as array
+behv_time=0                 : longblob
+behv_filestart=0            : longblob
+behv_trialbeg=0             : longblob
+behv_trialend=0             : longblob
+behv_trialrew=0             : longblob
 %}
 
 classdef Behaviour < dj.Imported
@@ -33,15 +38,15 @@ classdef Behaviour < dj.Imported
             
             % prepare SMR data
             default_prs;
-            [chdata,chnames] = PrepareSMRData(filepath,prs);
-            chdata = chdata{1};
-            key.lefteye_horpos = chdata((find(strcmp(chnames,'lefteye_horpos'))),:);
-            key.lefteye_verpos = chdata((find(strcmp(chnames,'lefteye_verpos'))),:);
-            key.righteye_horpos = chdata((find(strcmp(chnames,'righteye_horpos'))),:);
-            key.righteye_verpos = chdata((find(strcmp(chnames,'righteye_verpos'))),:);
-            key.joy_linvel = chdata((find(strcmp(chnames,'joy_linvel'))),:);
-            key.joy_angvel = chdata((find(strcmp(chnames,'joy_angvel'))),:);
+            [chdata,chnames,key.behv_filestart] = PrepareSMRData(filepath,prs);
+            selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
+            for i=1:length(selfAttributes)
+                if any(strcmp(chnames,selfAttributes{i}))
+                    key.(selfAttributes{i}) = chdata(strcmp(chnames,selfAttributes{i}),:); 
+                end
+            end
             self.insert(key);
+            fprintf('Populated Behaviour channels for experiment done on %s in animal %s \n',key.session_date,key.animal_name);
         end
     end
 end

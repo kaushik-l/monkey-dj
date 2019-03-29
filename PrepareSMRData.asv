@@ -92,7 +92,7 @@ for j=1:nsmrfiles
     t_filestart(end+1) = t_filestart(end) + dt*MAX_LENGTH;
     
     %% store event data
-    eventdata{j} = {events_smr.t_beg,events_smr.t_rew,events_smr.t_end};
+    eventdata{j} = [events_smr.t_beg,events_smr.t_rew,events_smr.t_end]
     
 end
 t_filestart(end) = [];
