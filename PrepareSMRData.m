@@ -96,6 +96,9 @@ for j=1:nsmrfiles
     
 end
 t_filestart(end) = [];
+eventdata = cell2mat(vertcat(eventdata{:})); % concatenate trialevents
+eventdata = [mat2cell(eventdata,size(eventdata,1),ones(1,size(eventdata,2)))  {t_filestart(:)}]; % add filestart to trialevents
+eventnames = {'behv_trialbeg';'behv_trialend';'behv_trialrew';'behv_filestart'};
 
 %% concatenate data matrices from different smr files
 chdata = cell2mat(chdata);
@@ -107,4 +110,4 @@ chnames{strcmp(chnames,'zle')} = 'leye_verpos';
 chnames{strcmp(chnames,'zre')} = 'reye_verpos';
 chnames{strcmp(chnames,'v')} = 'joy_linvel';
 chnames{strcmp(chnames,'w')} = 'joy_angvel';
-chnames{end+1} = 'behv_time';
+chnames{end} = 'behv_time';

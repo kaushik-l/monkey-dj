@@ -38,11 +38,13 @@ classdef Behaviour < dj.Imported
             
             % prepare SMR data
             default_prs;
-            [chdata,chnames,key.behv_filestart] = PrepareSMRData(filepath,prs);
+            [chdata,chnames,eventdata,eventnames] = PrepareSMRData(filepath,prs);
             selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
             for i=1:length(selfAttributes)
                 if any(strcmp(chnames,selfAttributes{i}))
                     key.(selfAttributes{i}) = chdata(strcmp(chnames,selfAttributes{i}),:); 
+                elseif any(strcmp(eventnames,selfAttributes{i}))
+                    key.(selfAttributes{i}) = eventdata{strcmp(eventnames,selfAttributes{i})}; 
                 end
             end
             self.insert(key);
