@@ -1,5 +1,8 @@
 %{
+# Behavioural data (continuous channels and event markers)
 -> firefly.Session
+-> firefly.SessionList
+-> firefly.DataAcquisitionParam
 ---
 # add additional attributes
 leye_horpos=0               : longblob     # data as array
@@ -27,17 +30,16 @@ classdef Behaviour < dj.Imported
     
     methods(Access=protected)
         function makeTuples(self,key)
-            % use primary keys of session to lookup folder name from sessionLookup.m
-            sessionLookup;
-            session_ids = [sessionInfo.session_id];
-            animal_names = {sessionInfo.animal_name};
-            mysession = sessionInfo((session_ids == key.session_id) & strcmp(animal_names, key.animal_name));            
+            % use primary keys of session to lookup folder name from SessionLog Table
+            folder = fetch1(firefly.SessionList & ... % from table
+                ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'],... % restrict
+                'folder'); % return attribute
             
             % create file path
-            filepath = ['C:\Users\ok24\Documents\Data\firefly-monkey\' mysession.folder '\behavioural data'];            
+            filepath = [folder '\behavioural data'];
             
             % prepare SMR data
-            default_prs;
+            prs = fetch(firefly.DataAcquisitionParam,'*');
             [chdata,chnames,eventdata,eventnames] = PrepareSMRData(filepath,prs);
             selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
             for i=1:length(selfAttributes)
@@ -48,7 +50,7 @@ classdef Behaviour < dj.Imported
                 end
             end
             self.insert(key);
-            fprintf('Populated Behaviour channels for experiment done on %s in animal %s \n',key.session_date,key.animal_name);
+            fprintf('Populated Behaviour channels for experiment done on %s with monkey %s \n',key.session_date,key.monk_name);
         end
     end
 end

@@ -1,9 +1,9 @@
-function [t_events,prs] = GetEvents_nev(f_nev,prs)
+function [t_events,fs_spk] = GetEvents_nev(f_nev)
 % get begin, reward, and end times from nev file
 
 NEV = openNEV(['/' f_nev], 'nosave');
 events = NEV.Data.SerialDigitalIO;
-prs.fs_spk = NEV.MetaTags.TimeRes; % sampling rate
+fs_spk = NEV.MetaTags.TimeRes; % sampling rate
 
 t_events.t_start = events.TimeStampSec(events.UnparsedData==1);
 t_events.t_rew = events.TimeStampSec(events.UnparsedData==4);

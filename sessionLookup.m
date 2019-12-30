@@ -5,7 +5,7 @@ sessionInfo = [];
 %% Quigley
 
 %% session 1
-sessionInfo (end+1).animal_name = 'Quigley';         % Monkey #
+sessionInfo (end+1).monk_name = 'Quigley';         % Monkey #
 sessionInfo (end).session_id = 1;         % Session #
 sessionInfo (end).coord.row = -3;         % Row (grid)
 sessionInfo (end).coord.column = 14;      % Column (grid)
@@ -17,7 +17,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 2
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 2;
 sessionInfo (end).coord.row = -4;
 sessionInfo (end).coord.column = 17;
@@ -29,7 +29,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 3
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 3;
 sessionInfo (end).coord.row = -7;
 sessionInfo (end).coord.column = 12;
@@ -41,7 +41,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 4
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 4;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 18;
@@ -53,7 +53,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 5
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 5;
 sessionInfo (end).coord.row = -7;
 sessionInfo (end).coord.column = 14;
@@ -65,7 +65,7 @@ sessionInfo (end).comments = {'fixed density, angular landmarks, no ptb, fixed D
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 6
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 6;
 sessionInfo (end).coord.row = -8;
 sessionInfo (end).coord.column = 17;
@@ -77,7 +77,7 @@ sessionInfo (end).comments = {'two densities, angular landmarks, no ptb, stairca
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 7
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 7;
 sessionInfo (end).coord.row = -4;
 sessionInfo (end).coord.column = 17;
@@ -89,7 +89,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 8
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 8;
 sessionInfo (end).coord.row = -5;
 sessionInfo (end).coord.column = 12;
@@ -101,7 +101,7 @@ sessionInfo (end).comments = {'fixed density, angular landmarks, no ptb, fixed D
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 9
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 9;
 sessionInfo (end).coord.row = -2;
 sessionInfo (end).coord.column = 14;
@@ -113,7 +113,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 10
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 10;
 sessionInfo (end).coord.row = -4;
 sessionInfo (end).coord.column = 16;
@@ -125,7 +125,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 11
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 11;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 16;
@@ -137,7 +137,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe16';
 
 %% session 12
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 12;
 sessionInfo (end).coord.row = -7;
 sessionInfo (end).coord.column = 11;
@@ -149,7 +149,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 13
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 13;
 sessionInfo (end).coord.row = -2;
 sessionInfo (end).coord.column = 20;
@@ -161,7 +161,7 @@ sessionInfo (end).comments = {'fixed density, angular landmarks, no ptb, fixed D
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 14
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 14;
 sessionInfo (end).coord.row = -5;
 sessionInfo (end).coord.column = 14;
@@ -173,7 +173,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 15
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 15;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 18;
@@ -185,7 +185,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 16
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 16;
 sessionInfo (end).coord.row = -3;
 sessionInfo (end).coord.column = 16;
@@ -197,7 +197,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 17
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 17;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 11;
@@ -209,7 +209,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 18
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 18;
 sessionInfo (end).coord.row = -1;
 sessionInfo (end).coord.column = 16;
@@ -221,7 +221,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 19
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 19;
 sessionInfo (end).coord.row = -7;
 sessionInfo (end).coord.column = 13;
@@ -233,7 +233,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 20
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 20;
 sessionInfo (end).coord.row = -4;
 sessionInfo (end).coord.column = 20;
@@ -245,7 +245,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 21
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 21;
 sessionInfo (end).coord.row = -2;
 sessionInfo (end).coord.column = 16;
@@ -257,7 +257,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 22
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 22;
 sessionInfo (end).coord.row = -1;
 sessionInfo (end).coord.column = 15;
@@ -269,7 +269,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 23
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 23;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 15;
@@ -281,7 +281,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 24
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 24;
 sessionInfo (end).coord.row = -2;
 sessionInfo (end).coord.column = 18;
@@ -294,7 +294,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 25
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 25;
 sessionInfo (end).coord.row = -7;
 sessionInfo (end).coord.column = 10;
@@ -307,7 +307,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 26
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 26;
 sessionInfo (end).coord.row = -8;
 sessionInfo (end).coord.column = 18;
@@ -320,7 +320,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 27
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 27;
 sessionInfo (end).coord.row = -5;
 sessionInfo (end).coord.column = 20;
@@ -333,7 +333,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 28
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 28;
 sessionInfo (end).coord.row = -7;
 sessionInfo (end).coord.column = 15;
@@ -346,7 +346,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 29
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 29;
 sessionInfo (end).coord.row = -1;
 sessionInfo (end).coord.column = 20;
@@ -358,7 +358,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 'trapezoid translation'};
 
 %% session 30
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 30;
 sessionInfo (end).coord.row = -4;
 sessionInfo (end).coord.column = 22;
@@ -371,7 +371,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 31
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 31;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 19;
@@ -384,7 +384,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 32
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 32;
 sessionInfo (end).coord.row = -7;
 sessionInfo (end).coord.column = 16;
@@ -397,7 +397,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe16';
 
 %% session 33
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 33;
 sessionInfo (end).coord.row = -3;
 sessionInfo (end).coord.column = 21;
@@ -410,7 +410,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe16';
 
 %% session 34
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 34;
 sessionInfo (end).coord.row = -5;
 sessionInfo (end).coord.column = 21;
@@ -423,7 +423,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe16';
 
 %% session 35
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 35;
 sessionInfo (end).coord.row = -8;
 sessionInfo (end).coord.column = 19;
@@ -436,7 +436,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe16';
 
 %% session 36
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 36;
 sessionInfo (end).coord.row = -1;
 sessionInfo (end).coord.column = 21;
@@ -449,7 +449,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 37
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 37;
 sessionInfo (end).coord.row = -4;
 sessionInfo (end).coord.column = 23;
@@ -462,7 +462,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 38
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 38;
 sessionInfo (end).coord.row = -7;
 sessionInfo (end).coord.column = 17;
@@ -475,7 +475,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 39
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 39;
 sessionInfo (end).coord.row = -4;
 sessionInfo (end).coord.column = 17;
@@ -488,7 +488,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 40
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 40;
 sessionInfo (end).coord.row = -2;
 sessionInfo (end).coord.column = 22;
@@ -501,7 +501,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 41
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 41;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 18;
@@ -513,7 +513,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 42
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 42;
 sessionInfo (end).coord.row = -5;
 sessionInfo (end).coord.column = 14;
@@ -526,7 +526,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'linearprobe16';
 
 %% session 43
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 43;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -538,7 +538,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 44
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 44;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -550,7 +550,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 45
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 45;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -562,7 +562,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 46
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 46;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -574,7 +574,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 47
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 47;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -586,7 +586,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 48
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 48;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -598,7 +598,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 49
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 49;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -610,7 +610,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 50
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 50;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -622,7 +622,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 51
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 51;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -634,7 +634,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 52
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 52;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -646,7 +646,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 53
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 53;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -658,7 +658,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 54
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 54;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -670,7 +670,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 55
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 55;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -682,7 +682,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 56
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 56;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -694,7 +694,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 57
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 57;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -706,7 +706,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 58
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 58;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -718,7 +718,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 59
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 59;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -730,7 +730,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 60
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 60;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -742,7 +742,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 61
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 61;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -754,7 +754,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 62
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 62;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -766,7 +766,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 63
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 63;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -778,7 +778,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 64
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 64;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -790,7 +790,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 65
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 65;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -802,7 +802,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 66
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 66;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -814,7 +814,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 67
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 67;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -826,7 +826,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 68
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 68;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -838,7 +838,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 69
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 69;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -850,7 +850,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 70
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 70;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -862,7 +862,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 71
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 71;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -874,7 +874,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 72
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 72;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -886,7 +886,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 73
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 73;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -898,7 +898,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 74
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 74;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -910,7 +910,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 75
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 75;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -922,7 +922,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 76
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 76;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -934,7 +934,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, fixed DCI, f
 sessionInfo (end).electrode = 'utah96';
 
 %% session 77
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 77;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -946,7 +946,7 @@ sessionInfo (end).comments = {'fixed density, distance landmarks, no ptb, fixed 
 sessionInfo (end).electrode = 'utah96';
 
 %% session 78
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 78;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -958,7 +958,7 @@ sessionInfo (end).comments = {'fixed density, distance landmarks, no ptb, fixed 
 sessionInfo (end).electrode = 'utah96';
 
 %% session 79
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 79;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -970,7 +970,7 @@ sessionInfo (end).comments = {'fixed density, distance and angular landmarks, no
 sessionInfo (end).electrode = 'utah96';
 
 %% session 80
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 80;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -982,7 +982,7 @@ sessionInfo (end).comments = {'fixed density, distance and angular landmarks, no
 sessionInfo (end).electrode = 'utah96';
 
 %% session 81
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 81;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -994,7 +994,7 @@ sessionInfo (end).comments = {'fixed density, distance and angular landmarks, re
 sessionInfo (end).electrode = 'utah96';
 
 %% session 82
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 82;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1006,7 +1006,7 @@ sessionInfo (end).comments = {'fixed density, distance and angular landmarks, re
 sessionInfo (end).electrode = 'utah96';
 
 %% session 83
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 83;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1018,7 +1018,7 @@ sessionInfo (end).comments = {'fixed density, distance and angular landmarks, re
 sessionInfo (end).electrode = 'utah96';
 
 %% session 84
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 84;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1030,7 +1030,7 @@ sessionInfo (end).comments = {'fixed density, distance and angular landmarks, re
 sessionInfo (end).electrode = 'utah96';
 
 %% session 85
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 85;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1042,7 +1042,7 @@ sessionInfo (end).comments = {'fixed density, distance and angular landmarks, re
 sessionInfo (end).electrode = 'utah96';
 
 %% session 86
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 86;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1054,7 +1054,7 @@ sessionInfo (end).comments = {'fixed density, distance and angular landmarks, re
 sessionInfo (end).electrode = 'utah96';
 
 %% session 87
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 87;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1066,7 +1066,7 @@ sessionInfo (end).comments = {'fixed density, distance and angular landmarks, re
 sessionInfo (end).electrode = 'utah96';
 
 %% session 88
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 88;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1078,7 +1078,7 @@ sessionInfo (end).comments = {'fixed density, distance and angular landmarks, re
 sessionInfo (end).electrode = 'utah96';
 
 %% session 89
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 89;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1090,7 +1090,7 @@ sessionInfo (end).comments = {'fixed density, distance and angular landmarks, re
 sessionInfo (end).electrode = 'utah96';
 
 %% session 90
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 90;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1102,7 +1102,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 91
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 91;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1114,7 +1114,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 92
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 92;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1126,7 +1126,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 93
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 93;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1138,7 +1138,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 94
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 94;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1150,7 +1150,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 95
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 95;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1162,7 +1162,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 96
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 96;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1174,7 +1174,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 97
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 97;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1186,7 +1186,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 98
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 98;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1198,7 +1198,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 99
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 99;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1210,7 +1210,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 100
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 100;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1222,7 +1222,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 101
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 101;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1234,7 +1234,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 102
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 102;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1246,7 +1246,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 103
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 103;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1258,7 +1258,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 104
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 104;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1270,7 +1270,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 105
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 105;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1282,7 +1282,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 106
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 106;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1294,7 +1294,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 107
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 107;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1306,7 +1306,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 108
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 108;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1318,7 +1318,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 109
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 109;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1330,7 +1330,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 110
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 110;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1343,7 +1343,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 111
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 111;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1355,7 +1355,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 112
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 112;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1367,7 +1367,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 113
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 113;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1379,7 +1379,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 114
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 114;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1391,7 +1391,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 115
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 115;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1403,7 +1403,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 116
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 116;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1415,7 +1415,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 117
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 117;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1427,7 +1427,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, fixed
 sessionInfo (end).electrode = 'utah96';
 
 %% session 118
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 118;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1439,7 +1439,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, two D
 sessionInfo (end).electrode = 'utah96';
 
 %% session 119
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 119;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1451,7 +1451,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, two D
 sessionInfo (end).electrode = 'utah96';
 
 %% session 120
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 120;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1463,7 +1463,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, two D
 sessionInfo (end).electrode = 'utah96';
 
 %% session 121
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 121;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1475,7 +1475,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, two D
 sessionInfo (end).electrode = 'utah96';
 
 %% session 122
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 122;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1487,7 +1487,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, two D
 sessionInfo (end).electrode = 'utah96';
 
 %% session 123
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 123;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1499,7 +1499,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, two D
 sessionInfo (end).electrode = 'utah96';
 
 %% session 124
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 124;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1511,7 +1511,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, two D
 sessionInfo (end).electrode = 'utah96';
 
 %% session 125
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 125;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1523,7 +1523,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, two D
 sessionInfo (end).electrode = 'utah96';
 
 %% session 126
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 126;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1535,7 +1535,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, two D
 sessionInfo (end).electrode = 'utah96';
 
 %% session 127
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 127;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1547,7 +1547,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, two D
 sessionInfo (end).electrode = 'utah96';
 
 %% session 128
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 128;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1559,7 +1559,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, two D
 sessionInfo (end).electrode = 'utah96';
 
 %% session 129
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 129;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1571,7 +1571,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, two D
 sessionInfo (end).electrode = 'utah96';
 
 %% session 130
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 130;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1583,7 +1583,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, two DCI, ran
 sessionInfo (end).electrode = 'utah96';
 
 %% session 1301
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 131;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1595,7 +1595,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, two DCI, ran
 sessionInfo (end).electrode = 'utah96';
 
 %% session 132
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 132;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1607,7 +1607,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, two DCI, ran
 sessionInfo (end).electrode = 'utah96';
 
 %% session 133
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 133;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1619,7 +1619,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, two DCI, ran
 sessionInfo (end).electrode = 'utah96';
 
 %% session 134
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 134;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1631,7 +1631,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, two DCI, ran
 sessionInfo (end).electrode = 'utah96';
 
 %% session 135
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 135;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1643,7 +1643,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, two DCI, ran
 sessionInfo (end).electrode = 'utah96';
 
 %% session 136
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 136;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1655,7 +1655,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, two DCI, ran
 sessionInfo (end).electrode = 'utah96';
 
 %% session 137
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 137;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1667,7 +1667,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, two DCI, ran
 sessionInfo (end).electrode = 'utah96';
 
 %% session 138
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 138;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1679,7 +1679,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, two DCI, ran
 sessionInfo (end).electrode = 'utah96';
 
 %% session 139
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 139;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1691,7 +1691,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, two DCI, ran
 sessionInfo (end).electrode = 'utah96';
 
 %% session 140
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 140;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1703,7 +1703,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'utah96';
 
 %% session 141
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 141;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1715,7 +1715,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'utah96';
 
 %% session 142
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 142;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1727,7 +1727,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'utah96';
 
 %% session 143
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 143;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1739,7 +1739,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'utah96';
 
 %% session 144
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 144;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1751,7 +1751,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'utah96';
 
 %% session 145
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 145;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1763,7 +1763,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'utah96';
 
 %% session 146
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 146;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1775,7 +1775,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'utah96';
 
 %% session 147
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 147;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1787,7 +1787,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'utah96';
 
 %% session 148
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 148;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1799,7 +1799,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'utah96';
 
 %% session 149
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 149;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1811,7 +1811,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'utah96';
 
 %% session 150
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 150;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1823,7 +1823,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'utah96';
 
 %% session 151
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 151;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1835,7 +1835,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'utah96';
 
 %% session 152
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 152;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1847,7 +1847,7 @@ sessionInfo (end).comments = {'two densities, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'V-probe';
 
 %% session 153
-sessionInfo (end+1).animal_name = 'Quigley';
+sessionInfo (end+1).monk_name = 'Quigley';
 sessionInfo (end).session_id = 153;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -1861,7 +1861,7 @@ sessionInfo (end).electrode = 'V-probe';
 %% Bruno
 
 %% session 1
-sessionInfo (end+1).animal_name = 'Bruno';         % Monkey #
+sessionInfo (end+1).monk_name = 'Bruno';         % Monkey #
 sessionInfo (end).session_id = 1;         % Session #
 sessionInfo (end).coord.row = -6;         % Row (grid)
 sessionInfo (end).coord.column = 18;      % Column (grid)
@@ -1873,7 +1873,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, fixed DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 2
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 2;
 sessionInfo (end).coord.row = -8;
 sessionInfo (end).coord.column = 16;
@@ -1885,7 +1885,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, fixed DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 3
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 3;
 sessionInfo (end).coord.row = -4;
 sessionInfo (end).coord.column = 19;
@@ -1898,7 +1898,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, fixed DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 4
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 4;
 sessionInfo (end).coord.row = -7;
 sessionInfo (end).coord.column = 20;
@@ -1910,7 +1910,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, fixed DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 5
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 5;
 sessionInfo (end).coord.row = -5;
 sessionInfo (end).coord.column = 15;
@@ -1922,7 +1922,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, fixed DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 6
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 6;
 sessionInfo (end).coord.row = -3;
 sessionInfo (end).coord.column = 13;
@@ -1934,7 +1934,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, fixed DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 7
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 7;
 sessionInfo (end).coord.row = -8;
 sessionInfo (end).coord.column = 18;
@@ -1946,7 +1946,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, fixed DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 8
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 8;
 sessionInfo (end).coord.row = -7;
 sessionInfo (end).coord.column = 14;
@@ -1958,7 +1958,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, fixed DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 9
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 9;
 sessionInfo (end).coord.row = -8;
 sessionInfo (end).coord.column = 22;
@@ -1970,7 +1970,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, fixed DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 10
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 10;
 sessionInfo (end).coord.row = -3;
 sessionInfo (end).coord.column = 17;
@@ -1982,7 +1982,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, fixed DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 11
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 11;
 sessionInfo (end).coord.row = -8;
 sessionInfo (end).coord.column = 12;
@@ -1994,7 +1994,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, fixed DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 12
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 12;
 sessionInfo (end).coord.row = -5;
 sessionInfo (end).coord.column = 13;
@@ -2006,7 +2006,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, fixed DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 13
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 13;
 sessionInfo (end).coord.row = -7;
 sessionInfo (end).coord.column = 17;
@@ -2018,7 +2018,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, fixed DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 14
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 14;
 sessionInfo (end).coord.row = -5;
 sessionInfo (end).coord.column = 20;
@@ -2030,7 +2030,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, fixed DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 15
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 15;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 16;
@@ -2042,7 +2042,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, two DCI, ra
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 16
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 16;
 sessionInfo (end).coord.row = -3;
 sessionInfo (end).coord.column = 16;
@@ -2054,7 +2054,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, two DCI, ra
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 17
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 17;
 sessionInfo (end).coord.row = -7;
 sessionInfo (end).coord.column = 12;
@@ -2066,7 +2066,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, two DCI, ra
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 18
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 18;
 sessionInfo (end).coord.row = -5;
 sessionInfo (end).coord.column = 18;
@@ -2078,7 +2078,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, two DCI, ra
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 19
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 19;
 sessionInfo (end).coord.row = -5;
 sessionInfo (end).coord.column = 19;
@@ -2090,7 +2090,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, two DCI, ra
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 20
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 20;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 14;
@@ -2102,7 +2102,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, two DCI, ra
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 21
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 21;
 sessionInfo (end).coord.row = -5;
 sessionInfo (end).coord.column = 17;
@@ -2114,7 +2114,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, two DCI, ra
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 22
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 22;
 sessionInfo (end).coord.row = -2;
 sessionInfo (end).coord.column = 19;
@@ -2126,7 +2126,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI,
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 23
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 23;
 sessionInfo (end).coord.row = -7;
 sessionInfo (end).coord.column = 18;
@@ -2138,7 +2138,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI,
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 24
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 24;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 13;
@@ -2150,7 +2150,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI,
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 25
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 25;
 sessionInfo (end).coord.row = -9;
 sessionInfo (end).coord.column = 16;
@@ -2162,7 +2162,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI,
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 26
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 26;
 sessionInfo (end).coord.row = -4;
 sessionInfo (end).coord.column = 17;
@@ -2174,7 +2174,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI,
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 27
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 27;
 sessionInfo (end).coord.row = -7;
 sessionInfo (end).coord.column = 16;
@@ -2186,7 +2186,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI,
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 28
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 28;
 sessionInfo (end).coord.row = -5;
 sessionInfo (end).coord.column = 14;
@@ -2198,7 +2198,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI,
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 29
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 29;
 sessionInfo (end).coord.row = -8;
 sessionInfo (end).coord.column = 14;
@@ -2210,7 +2210,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI,
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 30
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 30;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 13;
@@ -2222,7 +2222,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI,
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 31
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 31;
 sessionInfo (end).coord.row = -7;
 sessionInfo (end).coord.column = 15;
@@ -2234,7 +2234,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI,
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 32
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 32;
 sessionInfo (end).coord.row = -4;
 sessionInfo (end).coord.column = 16;
@@ -2246,7 +2246,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI,
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 33
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 33;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 19;
@@ -2259,7 +2259,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 34
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 34;
 sessionInfo (end).coord.row = -2;
 sessionInfo (end).coord.column = 20;
@@ -2272,7 +2272,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 35
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 35;
 sessionInfo (end).coord.row = -8;
 sessionInfo (end).coord.column = 19;
@@ -2285,7 +2285,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, no ptb, random DCI, 
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 36
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 36;
 sessionInfo (end).coord.row = -4;
 sessionInfo (end).coord.column = 20;
@@ -2297,7 +2297,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, rando
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 37
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 37;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 21;
@@ -2309,7 +2309,7 @@ sessionInfo (end).comments = {'fixed density, no landmarks, perturbations, rando
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 38
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 38;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2322,7 +2322,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI,
 sessionInfo (end).electrode = 'utah96';
 
 %% session 39
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 39;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2335,7 +2335,7 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI,
 sessionInfo (end).electrode = 'utah96';
 
 %% session 40
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 40;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2348,43 +2348,43 @@ sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI,
 sessionInfo (end).electrode = 'utah96';
 
 %% session 41
-sessionInfo (end+1).animal_name = 'testmonkey';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 41;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
 sessionInfo (end).coord.depth = nan;
 sessionInfo (end).channels = 1:96;
 sessionInfo (end).units = 0;
-sessionInfo (end).folder = 'Bruno/Utah array/Aug 3 2017';
+sessionInfo (end).folder = 'Bruno/Utah array/Aug 03 2017';
 sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI, random ITI'};
 sessionInfo (end).electrode = 'utah96';
 
 %% session 42
-sessionInfo (end+1).animal_name = 'testmonkey';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 42;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
 sessionInfo (end).coord.depth = nan;
 sessionInfo (end).channels = 1:96;
 sessionInfo (end).units = 0;
-sessionInfo (end).folder = 'Bruno/Utah array/Aug 4 2017';
+sessionInfo (end).folder = 'Bruno/Utah array/Aug 04 2017';
 sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI, random ITI'};
 sessionInfo (end).electrode = 'utah96';
 
 %% session 43
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 43;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
 sessionInfo (end).coord.depth = nan;
 sessionInfo (end).channels = 1:96;
 sessionInfo (end).units = 0;
-sessionInfo (end).folder = 'Bruno/Utah array/Aug 5 2017';
+sessionInfo (end).folder = 'Bruno/Utah array/Aug 05 2017';
 sessionInfo (end).comments = {'four densities, no landmarks, no ptb, random DCI, random ITI'};
 sessionInfo (end).electrode = 'utah96';
 
 %% session 48
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 48;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 20;
@@ -2396,7 +2396,7 @@ sessionInfo (end).comments = {'fixed densities, no landmarks, perturbations, ran
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 49
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 49;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 20;
@@ -2408,7 +2408,7 @@ sessionInfo (end).comments = {'fixed densities, no landmarks, perturbations, ran
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 50
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 50;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 20;
@@ -2420,7 +2420,7 @@ sessionInfo (end).comments = {'fixed densities, no landmarks, perturbations, ran
 sessionInfo (end).electrode = 'linearprobe32';
 
 %% session 51
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 51;
 sessionInfo (end).coord.row = -6;
 sessionInfo (end).coord.column = 20;
@@ -2432,7 +2432,7 @@ sessionInfo (end).comments = {'fixed densities, no landmarks, perturbations, ran
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 123
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 123;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2445,7 +2445,7 @@ sessionInfo (end).electrode = 'utah96';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 124
-sessionInfo (end+1).animal_name = 'Bruno';
+sessionInfo (end+1).monk_name = 'Bruno';
 sessionInfo (end).session_id = 124;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2459,7 +2459,7 @@ sessionInfo (end).electrode = 'linearprobe24';
 %% Schro
 
 %% session 1
-sessionInfo (end+1).animal_name = 'Schro';         % Monkey # 
+sessionInfo (end+1).monk_name = 'Schro';         % Monkey # 
 sessionInfo (end).session_id = 1;         % Session #
 sessionInfo (end).coord.row = 18;         % Row (grid)
 sessionInfo (end).coord.column = 18;      % Column (grid)
@@ -2472,7 +2472,7 @@ sessionInfo (end).eyechannels = 'left';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 2
-sessionInfo (end+1).animal_name = 'Schro'; 
+sessionInfo (end+1).monk_name = 'Schro'; 
 sessionInfo (end).session_id = 2;
 sessionInfo (end).coord.row = 16;
 sessionInfo (end).coord.column = 23;
@@ -2485,7 +2485,7 @@ sessionInfo (end).eyechannels = 'left';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 3
-sessionInfo (end+1).animal_name = 'Schro'; 
+sessionInfo (end+1).monk_name = 'Schro'; 
 sessionInfo (end).session_id = 3;
 sessionInfo (end).coord.row = 14;
 sessionInfo (end).coord.column = 20;
@@ -2498,7 +2498,7 @@ sessionInfo (end).eyechannels = 'none';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 4
-sessionInfo (end+1).animal_name = 'Schro'; 
+sessionInfo (end+1).monk_name = 'Schro'; 
 sessionInfo (end).session_id = 4;
 sessionInfo (end).coord.row = 16;
 sessionInfo (end).coord.column = 20;
@@ -2511,7 +2511,7 @@ sessionInfo (end).eyechannels = 'none';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 5
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 5;
 sessionInfo (end).coord.row = 19;
 sessionInfo (end).coord.column = 19;
@@ -2524,7 +2524,7 @@ sessionInfo (end).eyechannels = 'none';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 6
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 6;
 sessionInfo (end).coord.row = 14;
 sessionInfo (end).coord.column = 22;
@@ -2537,7 +2537,7 @@ sessionInfo (end).eyechannels = 'none';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 7
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 7;
 sessionInfo (end).coord.row = 15;
 sessionInfo (end).coord.column = 20;
@@ -2550,7 +2550,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 8
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 8;
 sessionInfo (end).coord.row = 17;
 sessionInfo (end).coord.column = 20;
@@ -2563,7 +2563,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 9
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 9;
 sessionInfo (end).coord.row = 14;
 sessionInfo (end).coord.column = 24;
@@ -2576,7 +2576,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 10
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 10;
 sessionInfo (end).coord.row = 18;
 sessionInfo (end).coord.column = 19;
@@ -2589,7 +2589,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 11
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 11;
 sessionInfo (end).coord.row = 15;
 sessionInfo (end).coord.column = 21;
@@ -2602,7 +2602,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 12
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 12;
 sessionInfo (end).coord.row = 19;
 sessionInfo (end).coord.column = 21;
@@ -2615,7 +2615,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 13
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 13;
 sessionInfo (end).coord.row = 18;
 sessionInfo (end).coord.column = 25;
@@ -2628,7 +2628,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 14
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 14;
 sessionInfo (end).coord.row = 14;
 sessionInfo (end).coord.column = 21;
@@ -2641,7 +2641,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 15
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 15;
 sessionInfo (end).coord.row = 15;
 sessionInfo (end).coord.column = 27;
@@ -2654,7 +2654,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 16
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 16;
 sessionInfo (end).coord.row = 19;
 sessionInfo (end).coord.column = 18;
@@ -2667,7 +2667,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 17
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 17;
 sessionInfo (end).coord.row = 15;
 sessionInfo (end).coord.column = 22;
@@ -2680,7 +2680,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 18
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 18;
 sessionInfo (end).coord.row = 14;
 sessionInfo (end).coord.column = 23;
@@ -2693,7 +2693,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 19
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 19;
 sessionInfo (end).coord.row = 15;
 sessionInfo (end).coord.column = 26;
@@ -2706,7 +2706,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 18
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 18;
 sessionInfo (end).coord.row = 14;
 sessionInfo (end).coord.column = 23;
@@ -2719,7 +2719,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 20
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 20;
 sessionInfo (end).coord.row = 16;
 sessionInfo (end).coord.column = 25;
@@ -2732,7 +2732,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 21
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 21;
 sessionInfo (end).coord.row = 18;
 sessionInfo (end).coord.column = 23;
@@ -2745,7 +2745,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 22
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 22;
 sessionInfo (end).coord.row = 15;
 sessionInfo (end).coord.column = 23;
@@ -2758,7 +2758,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 23
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 23;
 sessionInfo (end).coord.row = 17;
 sessionInfo (end).coord.column = 21;
@@ -2771,7 +2771,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 24
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 24;
 sessionInfo (end).coord.row = 15;
 sessionInfo (end).coord.column = 25;
@@ -2784,7 +2784,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 25
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 25;
 sessionInfo (end).coord.row = 17;
 sessionInfo (end).coord.column = 24;
@@ -2797,7 +2797,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 26
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 26;
 sessionInfo (end).coord.row = 16;
 sessionInfo (end).coord.column = 21;
@@ -2810,7 +2810,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 27
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 27;
 sessionInfo (end).coord.row = 19;
 sessionInfo (end).coord.column = 20;
@@ -2823,7 +2823,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 28
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 28;
 sessionInfo (end).coord.row = 17;
 sessionInfo (end).coord.column = 23;
@@ -2836,7 +2836,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'linearprobe24';
 
 %% session 29
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 29;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2849,7 +2849,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 30
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 30;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2862,7 +2862,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 31
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 31;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2875,7 +2875,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 32
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 32;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2888,7 +2888,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 33
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 33;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2901,7 +2901,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 34
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 34;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2914,7 +2914,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 35
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 35;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2927,7 +2927,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 36
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 36;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2940,7 +2940,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 37
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 37;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2953,7 +2953,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 38
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 38;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2966,7 +2966,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 39
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 39;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2979,7 +2979,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 40
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 40;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -2992,7 +2992,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 41
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 41;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -3005,7 +3005,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 42
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 42;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -3018,7 +3018,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 43
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 43;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -3031,7 +3031,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 44
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 44;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -3044,7 +3044,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 45
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 45;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -3057,7 +3057,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 46
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 46;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -3070,7 +3070,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 47
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 47;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -3083,7 +3083,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 48
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 48;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -3096,7 +3096,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 49
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 49;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -3109,7 +3109,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 50
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 50;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -3122,7 +3122,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 51
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 51;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -3135,7 +3135,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 52
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 52;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -3148,7 +3148,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 
 %% session 53
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 53;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;
@@ -3161,7 +3161,7 @@ sessionInfo (end).eyechannels = 'both';
 sessionInfo (end).electrode = 'utah2x48';
 %% test data
 %% session 999
-sessionInfo (end+1).animal_name = 'Schro';
+sessionInfo (end+1).monk_name = 'Schro';
 sessionInfo (end).session_id = 999;
 sessionInfo (end).coord.row = nan;
 sessionInfo (end).coord.column = nan;

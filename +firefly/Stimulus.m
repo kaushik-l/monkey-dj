@@ -23,7 +23,7 @@ classdef Stimulus < dj.Imported
             mysession = sessionInfo((session_ids == key.session_id) & strcmp(animal_names, key.animal_name));
             
             % create file path
-            filepath = ['C:\Users\ok24\Documents\Data\firefly-monkey\' mysession.folder '\behavioural data'];
+            filepath = ['C:\Users\jkl9\Documents\Data\firefly-monkey\' mysession.folder '\behavioural data'];
             
             % read log file
             [values,features] = PrepareLogData(filepath);

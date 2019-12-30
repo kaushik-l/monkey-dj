@@ -27,6 +27,7 @@ for j=1:nsmrfiles
     chno.xmp = find(strcmp(ch_title,'MonkeyX')); chno.ymp = find(strcmp(ch_title,'MonkeyY'));
     chno.v = find(strcmp(ch_title,'ForwardV')); chno.w = find(strcmp(ch_title,'AngularV'));
     chno.mrk = find(strcmp(ch_title,'marker'));
+    if ~isempty(find(strcmp(ch_title,'Pulse'), 1)), chno.microstim = find(strcmp(ch_title,'Pulse')); end
     
     %% scale
     scaling.yle = data(chno.yle).hdr.adc.Scale; offset.yle = data(chno.yle).hdr.adc.DC;
@@ -40,6 +41,8 @@ for j=1:nsmrfiles
     scaling.v = data(chno.v).hdr.adc.Scale; offset.v = data(chno.v).hdr.adc.DC;
     scaling.w = data(chno.w).hdr.adc.Scale; offset.w = data(chno.w).hdr.adc.DC;
     scaling.t = data(chno.mrk).hdr.tim.Scale*data(chno.mrk).hdr.tim.Units;
+    if isfield(chno,'microstim'), scaling.microstim = data(chno.microstim).hdr.adc.Scale; 
+        offset.microstim = data(chno.microstim).hdr.adc.DC; end
     
     %% define filter
     sig = prs.filtwidth; %filter width
@@ -52,7 +55,7 @@ for j=1:nsmrfiles
     chnames = fieldnames(chno); MAX_LENGTH = inf; dt = [];
     for i=1:length(chnames)
         if ~any(strcmp(chnames{i},'mrk'))
-            ch.(chnames{i}) = double(data(chno.(chnames{i})).imp.adc)*scaling.(chnames{i}) + offset.(chnames{i});
+            ch.(chnames{i}) = double(data(chno.(chnames{i})).imp.adc(1:10000))*scaling.(chnames{i}) + offset.(chnames{i});
             dt = [dt prod(data(chno.(chnames{i})).hdr.adc.SampleInterval)];
             MAX_LENGTH = min(length(ch.(chnames{i})),MAX_LENGTH);
         end
@@ -98,7 +101,7 @@ end
 t_filestart(end) = [];
 eventdata = cell2mat(vertcat(eventdata{:})); % concatenate trialevents
 eventdata = [mat2cell(eventdata,size(eventdata,1),ones(1,size(eventdata,2)))  {t_filestart(:)}]; % add filestart to trialevents
-eventnames = {'behv_trialbeg';'behv_trialend';'behv_trialrew';'behv_filestart'};
+eventnames = {'behv_trialbeg';'behv_trialrew';'behv_trialend';'behv_filestart'};
 
 %% concatenate data matrices from different smr files
 chdata = cell2mat(chdata);
