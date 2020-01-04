@@ -11,10 +11,10 @@ electrode_id                : int
 electrode_type              : varchar(128) 
 lfp_amplitude               : longblob
 lfp_time                    : longblob
-lfp_filestart=0             : longblob
-lfp_trialbeg=0              : longblob
-lfp_trialend=0              : longblob
-lfp_trialrew=0              : longblob
+lfp_tstart=0                : longblob
+lfp_tbeg=0                  : longblob
+lfp_tend=0                  : longblob
+lfp_trew=0                  : longblob
 %}
 
 classdef Lfp < dj.Imported
@@ -46,20 +46,21 @@ classdef Lfp < dj.Imported
                 events_nev = InsertNaN2rewardtimes(events_nev);
                 [nchannels, nt] = size(NS1.Data);
                 dt = 1/NS1.MetaTags.SamplingFreq;
-                t = dt:dt:dt*10000;
+                t = dt:dt:dt*nt;
                 [~,electrode_id] = MapChannel2Electrode(utaharray_types{utaharray_type});
                 for i=1:nchannels
                     key.channel_id = i;
                     key.electrode_id = electrode_id(i);
                     key.electrode_type = utaharray_types{utaharray_type};
-                    key.lfp_amplitude = NS1.Data(i,1:10000);
+                    key.lfp_amplitude = NS1.Data(i,:);
                     key.lfp_time = t;
-                    key.lfp_filestart = events_nev.t_start;
-                    key.lfp_trialbeg = events_nev.t_beg;
-                    key.lfp_trialend = events_nev.t_end;
-                    key.lfp_trialrew = events_nev.t_rew;
+                    key.lfp_tstart = events_nev.t_start;
+                    key.lfp_tbeg = events_nev.t_beg;
+                    key.lfp_tend = events_nev.t_end;
+                    key.lfp_trew = events_nev.t_rew;
                     self.insert(key);
-                    fprintf('Populated LFP channel %d for experiment done on %s with animal %s \n',key.channel_id,key.session_date,key.monk_name);
+                    fprintf('Populated LFP channel %d for experiment done on %s with animal %s \n',...
+                        key.channel_id,key.session_date,key.monk_name);
                 end
             end
             

@@ -1,36 +1,39 @@
 %{
+# Stimulus data (discrete variables)
 -> firefly.Session
+-> firefly.SessionList
+-> firefly.DataAcquisitionParam
+block_number=1              : int          # experimental block
 ---
 # add additional attributes
-floor_den         : longblob     # data as array
-joy_gain=0          : longblob     # data as array
-ptb_linvel        : longblob     # data as array
-ptb_angvel        : longblob     # data as array
-landmark_lin=0      : longblob     # data as array
-landmark_ang=0      : longblob     # data as array
-floor_static=0      : longblob     # data as array
-trial_period=0      : longblob     # data as array
-reward_period=0     : longblob     # data as array
+
 %}
 
 classdef Stimulus < dj.Imported
     methods(Access=protected)
         function makeTuples(self,key)
-            % use primary keys of session to lookup folder name from sessionLookup.m
-            sessionLookup;
-            session_ids = [sessionInfo.session_id];
-            animal_names = {sessionInfo.animal_name};
-            mysession = sessionInfo((session_ids == key.session_id) & strcmp(animal_names, key.animal_name));
+            % use primary keys of session to lookup folder name from SessionLog Table
+            folder = fetch1(firefly.SessionList & ... % from table
+                ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'],... % restrict
+                'folder'); % return attribute
             
             % create file path
-            filepath = ['C:\Users\jkl9\Documents\Data\firefly-monkey\' mysession.folder '\behavioural data'];
+            filepath = [folder '\behavioural data'];
             
             % read log file
-            [values,features] = PrepareLogData(filepath);
-            key.floor_den = values(strcmp(features,'floor_den'),:);
-            key.ptb_linvel = values(strcmp(features,'ptb_linvel'),:);
-            key.ptb_angvel = values(strcmp(features,'ptb_angvel'),:);
-            self.insert(key);
+            [paramnames,paramvals] = PrepareLogData(filepath);
+            selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
+            nblocks = numel(paramnames);
+            for j=1:nblocks
+                key.block_number = j;
+                for i=1:length(selfAttributes)
+                    if any(strcmp(paramnames{j},selfAttributes{i}))
+                        key.(selfAttributes{i}) = paramvals{j}(strcmp(paramnames{j},selfAttributes{i}),:);
+                    end
+                end
+                self.insert(key);
+            end
+            fprintf('Populated %d block(s) of stimulus data for experiment done on %s with monkey %s \n',nblocks,key.session_date,key.monk_name);
         end
     end
 end

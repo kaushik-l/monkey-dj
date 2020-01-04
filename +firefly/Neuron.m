@@ -68,14 +68,11 @@ classdef Neuron < dj.Imported
                     key.neuron_trialbeg = events_nev.t_beg;
                     key.neuron_trialend = events_nev.t_end;
                     key.neuron_trialrew = events_nev.t_rew;
-                    k = whos('key');
-                    if k.bytes < 1e6, self.insert(key);
-                        fprintf('Populated cluster_id %d for experiment done on %s with animal %s \n',key.cluster_id,key.session_date,key.monk_name);
-                    else, fprintf('Cannot populate cluster_id %d for experiment done on %s with animal %s \n',key.cluster_id,key.session_date,key.monk_name);
-                    end
+                    self.insert(key);
+                    fprintf('Populated cluster_id %d for experiment done on %s with animal %s \n',...
+                        key.cluster_id,key.session_date,key.monk_name);
                 end
-            end
-            
+            end            
         end
     end
 end

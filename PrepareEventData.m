@@ -1,4 +1,4 @@
-function [chdata_out,chnames_out,eventdata_out,eventnames_out] = PrepareSMRData(filepath,prs,analysisprs)
+function [eventdata_out,eventnames_out] = PrepareEventData(filepath,prs,analysisprs)
 
 cd(filepath);
 
@@ -16,8 +16,7 @@ for block = 1:nblocks
     
     chdata = cell(1,numel(indx_smr));
     trialeventdata = cell(1,sum(indx_smr));
-    othereventdata = cell(1,sum(indx_smr));
-    t_startoffset = []; t_filestart = 0;
+    t_filestart = 0;
     for j=indx_smr
         data=ImportSMR(flist_smr(j).name);
         %% check channel headers
@@ -88,79 +87,22 @@ for block = 1:nblocks
         ch.zre = ch.zre(1:MAX_LENGTH);
         ch.v = ch.v(1:MAX_LENGTH);
         ch.w = ch.w(1:MAX_LENGTH);
-        ch.t = (dt:dt:dt*MAX_LENGTH)'; % create t using dt and nt ****************
-        
-        %% replace the signal from the untracked eye (if any) with NaNs
-        if analysisprs.eyechannels(1) == 0
-            ch.zle(:) = nan;
-            ch.yle(:) = nan;
-        end
-        if analysisprs.eyechannels(2) == 0
-            ch.zre(:) = nan;
-            ch.yre(:) = nan;
-        end
-        if all(analysisprs.eyechannels == 0), warning('No eye signal for this dataset'); end
-        
-        %% if using eye tracker, remove eye blinks and smooth
-        if any(analysisprs.eyechannels == 2)
-            X = [ch.zle ch.zre ch.yle ch.yre];
-            X = ReplaceWithNans(X, analysisprs.blink_thresh, analysisprs.nanpadding);
-            ch.zle = X(:,1); ch.zre = X(:,2); ch.yle = X(:,3); ch.yre = X(:,4);
-            sig = 10*prs.filtwidth; %filter width
-            sz = 10*prs.filtsize; %filter size
-            t2 = linspace(-sz/2, sz/2, sz);
-            h = exp(-t2.^2/(2*sig^2));
-            h = h/sum(h); % normalise filter to ensure area under the graph of the data is not altered
-            ch.zle = conv(ch.zle,h,'same'); ch.zre = conv(ch.zre,h,'same');
-            ch.yle = conv(ch.yle,h,'same'); ch.yre = conv(ch.yre,h,'same');
-        end
-        
-        %% detect saccade times
-        % take derivative of eye position = eye velocity
-        if all(analysisprs.eyechannels ~= 0)
-            dze = diff(0.5*(ch.zle + ch.zre));
-            dye = diff(0.5*(ch.yle + ch.yre));
-        elseif analysisprs.eyechannels(1) ~= 0
-            dze = diff(ch.zle);
-            dye = diff(ch.yle);
-        else
-            dze = diff(ch.zre);
-            dye = diff(ch.yre);
-        end
-        
-        % estimate eye speed
-        de = sqrt(dze.^2 + dye.^2); % speed of eye movement
-        de_smooth = conv(de,h,'same')/dt;
-        
-        % apply threshold on eye speed
-        indx_thresh = de_smooth>analysisprs.saccade_thresh;
-        dindx_thresh = diff(indx_thresh);
-        t_saccade = find(dindx_thresh>0)*dt;
-        
-        % remove duplicates by applying a saccade refractory period
-        t_saccade(diff(t_saccade)<analysisprs.min_intersaccade) = [];
-        
-        %% interpolate nans
-        if any(analysisprs.eyechannels == 2) % conditional statement not necessary perhaps
-            nanx = isnan(ch.zle); t1 = 1:numel(ch.zle); ch.zle(nanx) = interp1(t1(~nanx), ch.zle(~nanx), t1(nanx), 'pchip');
-            nanx = isnan(ch.zre); t1 = 1:numel(ch.zle); ch.zre(nanx) = interp1(t1(~nanx), ch.zre(~nanx), t1(nanx), 'pchip');
-            nanx = isnan(ch.yle); t1 = 1:numel(ch.yle); ch.yle(nanx) = interp1(t1(~nanx), ch.yle(~nanx), t1(nanx), 'pchip');
-            nanx = isnan(ch.yre); t1 = 1:numel(ch.yre); ch.yre(nanx) = interp1(t1(~nanx), ch.yre(~nanx), t1(nanx), 'pchip');
-        end        
+        ch.t = t_filestart(end) + (dt:dt:dt*MAX_LENGTH)'; % create t using dt and nt ****************                   
         
         %% load relevant events
         markers = data(chno.mrk).imp.mrk(:,1);
         t_events = double(data(chno.mrk).imp.tim)*scaling.t;
-        t_startoffset = [t_startoffset t_events(markers == 1)];
-        events_smr.t_beg = t_events(markers ==2);
-        events_smr.t_end = t_events(markers ==3);
-        events_smr.t_rew = t_events(markers ==4);
+        t_startoffset = t_events(markers == 1);
+        events_smr.t_beg = t_events(markers ==2) - t_startoffset + t_filestart(end);
+        events_smr.t_end = t_events(markers ==3) - t_startoffset + t_filestart(end);
+        events_smr.t_rew = t_events(markers ==4) - t_startoffset + t_filestart(end);
         events_smr.t_beg = events_smr.t_beg(1:length(events_smr.t_end));
 
-        events_smr.t_ptb = t_events(markers==5 | markers==8);
+        events_smr.t_ptb = t_events(markers==5 | markers==8) + t_filestart(end) + t_startoffset;
         if isempty(events_smr.t_ptb), events_smr.t_ptb = nan(size(events_smr.t_end)); end
         
         events_smr = InsertNaN2rewardtimes(events_smr);
+        t_filestart(end+1) = t_filestart(end) + dt*MAX_LENGTH;
         
         %% refine t_beg to ensure it corresponds to target onset
         jitter = prs.jitter_marker;
@@ -176,8 +118,8 @@ for block = 1:nblocks
             if ~isempty(t_flyON_temp), t_flyON_trl(i) = t_flyON_temp(end); end
         end
         tflyON_minus_teleport = nanmedian(t_flyON_trl - t_teleport_trl);
-        % set trial begin time equal to target onset except for first trial
-        for i=2:length(events_smr.t_beg)
+        % set trial begin time equal to target onset
+        for i=1:length(events_smr.t_beg)
             if ~isnan(t_flyON_trl(i)), events_smr.t_beg(i) = t_flyON_trl(i);
             elseif ~isnan(t_teleport_trl(i)), events_smr.t_beg(i) = t_teleport_trl(i) + tflyON_minus_teleport;
             end
@@ -210,49 +152,14 @@ for block = 1:nblocks
                 else, events_smr.t_stop(i) = events_smr.t_end(i); end
             end
         end
-        
-        %% re-reference timing to start offset marker for this block
-        ch.t  = ch.t + t_filestart(end);                
-        events_smr.t_beg = events_smr.t_beg + t_filestart(end) - t_startoffset(1);
-        events_smr.t_rew = events_smr.t_rew + t_filestart(end) - t_startoffset(1);
-        events_smr.t_end = events_smr.t_end + t_filestart(end) - t_startoffset(1);
-        events_smr.t_ptb = events_smr.t_ptb + t_filestart(end) - t_startoffset(1);
-        events_smr.t_move = events_smr.t_move + t_filestart(end) - t_startoffset(1);
-        events_smr.t_stop = events_smr.t_stop + t_filestart(end) - t_startoffset(1);
-        t_saccade = t_saccade + t_filestart(end) - t_startoffset(1);
-        
-        t_filestart(end+1) = t_filestart(end) + dt*MAX_LENGTH;
-        
-        %% store continuous channel data
-        chdata{j} = struct2array(ch)';
-        
+
         %% store event data
         trialeventdata{j} = {events_smr.t_beg(:),events_smr.t_rew(:),events_smr.t_end(:),events_smr.t_ptb(:),...
             events_smr.t_move(:),events_smr.t_stop(:)};
-        othereventdata{j} = {t_saccade};
         
     end
     t_filestart(end) = [];
     trialeventdata = cell2mat(vertcat(trialeventdata{:})); % concatenate trial events
-    othereventdata = cell2mat(vertcat(othereventdata{:})); % concatenate other events
-    eventdata_out{block} = [mat2cell(trialeventdata,size(trialeventdata,1),ones(1,size(trialeventdata,2)))...
-        mat2cell(othereventdata,size(othereventdata,1),ones(1,size(othereventdata,2))) {t_startoffset(:)} {t_filestart(:)}]; % add filestart to trialevents
-    eventnames_out{block} = {'tbeg' 'trew' 'tend' 'tptb' 'tmove' 'tstop' 'behv_tsac' 'behv_tstart' 'behv_filestart'};
-    
-    %% concatenate data matrices from different smr files
-    chdata_out{block} = cell2mat(chdata);
-    
-    %% rename the channels so chnames contains {'lefteye_horpos','lefteye_verpos',...}
-    chnames_out{block} = chnames;
-    chnames_out{block}{strcmp(chnames_out{block},'yle')} = 'leye_horpos';
-    chnames_out{block}{strcmp(chnames_out{block},'yre')} = 'reye_horpos';
-    chnames_out{block}{strcmp(chnames_out{block},'zle')} = 'leye_verpos';
-    chnames_out{block}{strcmp(chnames_out{block},'zre')} = 'reye_verpos';
-    chnames_out{block}{strcmp(chnames_out{block},'v')} = 'joy_linvel';
-    chnames_out{block}{strcmp(chnames_out{block},'w')} = 'joy_angvel';
-    chnames_out{block}{strcmp(chnames_out{block},'xfp')} = 'firefly_x';
-    chnames_out{block}{strcmp(chnames_out{block},'yfp')} = 'firefly_y';
-    chnames_out{block}{strcmp(chnames_out{block},'xmp')} = 'monkey_x';
-    chnames_out{block}{strcmp(chnames_out{block},'ymp')} = 'monkey_y';
-    chnames_out{block}{end} = 'behv_time';
+    eventdata_out{block} = mat2cell(trialeventdata,size(trialeventdata,1),ones(1,size(trialeventdata,2))); % add filestart to trialevents
+    eventnames_out{block} = {'behv_tbeg' 'behv_trew' 'behv_tend' 'behv_tptb' 'behv_tmove' 'behv_tstop'};    
 end
