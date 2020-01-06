@@ -1,0 +1,36 @@
+function [paramnames,paramvals] = PrepareLogData(filepath,ntrialevents)
+
+cd(filepath);
+
+flist_log=dir('*.log'); 
+nblocks = length(flist_log);
+
+fieldvalues = @(MyStruct)(cellfun(@(fieldName)(double(MyStruct.(fieldName))),fieldnames(MyStruct)));
+for j=1:nblocks
+    ntrials = ntrialevents(block);
+    trials{j} = AddLOGData(flist_log(j).name);     
+    vals = cell2mat(arrayfun(@(k) [fieldvalues(trials{j}(k).prs) ; fieldvalues(trials{j}(k).logical)],...
+        1:numel(trials{j}),'UniformOutput',false));
+    if size(vals,2) >= ntrials, paramvals = [paramvals vals(:,1:ntrials)];
+    else
+        nextratrials = ntrials - size(vals,2);
+        paramvals = [paramvals vals vals(:,1:nextratrials)];
+    end    
+end
+
+paramnames = [fieldnames(trials{1}(1).prs) ; fieldnames(trials{1}(1).logical)];
+%% rename the paramnames to match with attributes of Stimulus table
+paramnames{strcmp(paramnames{j},'floordensity')} = 'floor_den';
+paramnames{strcmp(paramnames{j},'ptb_linear')} = 'ptb_linvel';
+paramnames{strcmp(paramnames{j},'ptb_angular')} = 'ptb_angvel';
+paramnames{strcmp(paramnames{j},'ptb_delay')} = 'ptb_delay';
+paramnames{strcmp(paramnames{j},'intertrial_interval')} = 'intertrial_intv';
+paramnames{strcmp(paramnames{j},'stop_duration')} = 'stop2feedback_intv';
+paramnames{strcmp(paramnames{j},'landmark_distance')} = 'landmark_lin';
+paramnames{strcmp(paramnames{j},'landmark_angle')} = 'landmark_ang';
+paramnames{strcmp(paramnames{j},'firefly_fullON')} = 'firefly_on';
+paramnames{strcmp(paramnames{j},'landmark_fixedground')} = 'landmark_ground';
+paramnames{strcmp(paramnames{j},'v_max')} = 'v_max';
+paramnames{strcmp(paramnames{j},'w_max')} = 'w_max';
+paramnames{strcmp(paramnames{j},'replay')} = 'replay';
+paramnames{strcmp(paramnames{j},'reward_duration')} = 'reward_duration';

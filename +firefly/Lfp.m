@@ -9,9 +9,12 @@ channel_id                  : int
 # add additional attributes
 electrode_id                : int     
 electrode_type              : varchar(128) 
+brain_area                  : varchar(128)
+ 
 lfp_amplitude               : longblob
 lfp_time                    : longblob
-lfp_tstart=0                : longblob
+
+lfp_tblockstart=0           : longblob
 lfp_tbeg=0                  : longblob
 lfp_tend=0                  : longblob
 lfp_trew=0                  : longblob
@@ -48,13 +51,16 @@ classdef Lfp < dj.Imported
                 dt = 1/NS1.MetaTags.SamplingFreq;
                 t = dt:dt:dt*nt;
                 [~,electrode_id] = MapChannel2Electrode(utaharray_types{utaharray_type});
+                brain_area = brain_area{strcmp(electrode_type,utaharray_types{utaharray_type})};
                 for i=1:nchannels
                     key.channel_id = i;
                     key.electrode_id = electrode_id(i);
                     key.electrode_type = utaharray_types{utaharray_type};
+                    if strcmp(key.electrode_type,'utah96'), key.brain_area = brain_area;
+                    else, key.brain_area = MapDualArray2BrainArea(brain_area, key.electrode_id); end
                     key.lfp_amplitude = NS1.Data(i,:);
                     key.lfp_time = t;
-                    key.lfp_tstart = events_nev.t_start;
+                    key.lfp_tblockstart = events_nev.t_start;
                     key.lfp_tbeg = events_nev.t_beg;
                     key.lfp_tend = events_nev.t_end;
                     key.lfp_trew = events_nev.t_rew;

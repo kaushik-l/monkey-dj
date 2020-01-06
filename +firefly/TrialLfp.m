@@ -24,12 +24,10 @@ classdef TrialLfp < dj.Computed
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
                 ['channel_id = ' num2str(key.channel_id)],'*');
             event_data = fetch(firefly.Event &...
-                ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                ['block_number = ' num2str(key.block_number)],'*');
-            prs = fetch(firefly.DataAcquisitionParam,'*');
+                ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'],'*');
             analysisprs = fetch(firefly.AnalysisParam,'*');
             
-            trials = SegmentLfpData(lfp_data,event_data,prs,analysisprs);
+            trials = SegmentLfpData(lfp_data,event_data,analysisprs);
             selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
             ntrials = numel(trials);
             for j=1:ntrials
@@ -41,8 +39,8 @@ classdef TrialLfp < dj.Computed
                 end
                 self.insert(key);
             end            
-            fprintf('Populated trial-by-trial behavioural data for block %d of experiment done on %s with monkey %s \n',...
-                key.block_number,key.session_date,key.monk_name);
+            fprintf('Populated trial-by-trial Lfp data from channel %d for experiment done on %s with monkey %s \n',...
+                key.channel_id,key.session_date,key.monk_name);
         end
     end
 end

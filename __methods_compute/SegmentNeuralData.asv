@@ -1,0 +1,35 @@
+function trials = SegmentNeuralData(neural_data,event_data,analysisprs,block_number)
+
+%% gather events
+tbeg = event_data.tbeg + neural_data.neuron_tstart(block_number);
+trew = event_data.trew + neural_data.neuron_tstart(block_number);
+tend = event_data.tend + neural_data.neuron_tstart(block_number);
+tptb = event_data.tptb + neural_data.neuron_tstart(block_number);
+tmove = event_data.tmove + neural_data.neuron_tstart(block_number);
+tstop = event_data.tstop + neural_data.neuron_tstart(block_number);
+ntrials = numel(event_data.tend);
+
+%% extract trials and downsample for storage
+for j=1:ntrials
+    %% save continuous variables
+    % define pretrial and posttrial periods
+    pretrial = max(tbeg(j) - tmove(j),0) + analysisprs.pretrial; % extract everything from "movement onset - pretrial" or "target onset - pretrial" - whichever is first
+    posttrial = analysisprs.posttrial; % extract everything until "t_end + posttrial"
+    for i=1:length(fieldnames_continuous)
+        if ~strcmp(fieldnames_continuous{i},'lfp_time')            
+            trials(j).(fieldnames_continuous{i}) = ...
+                neural_data.(fieldnames_continuous{i})(t>tbeg(j)-pretrial & t<tend(j)+posttrial);
+        end
+    end
+    trials(j).lfp_time = (dt:dt:length(trials(j).(fieldnames_continuous{1}))*dt)' + ...
+        ((tbeg(j)-pretrial)<0)*(-tbeg(j)) + ((tbeg(j)-pretrial)>0)*(-pretrial); % because not enough pretrial before 1st trial
+    
+    %% reference trial events to target onset (tbeg)
+    trials(j).neuron_tbeg = tbeg(j) - tbeg(j);
+    trials(j).neuron_tmove = tmove(j) - tbeg(j);
+    trials(j).lfp_tstop = tstop(j) - tbeg(j);
+    trials(j).lfp_trew = trew(j) - tbeg(j);
+    trials(j).lfp_tend = tend(j) - tbeg(j);
+    % perturbation onset time
+    trials(j).lfp_tptb = tptb(j) - tbeg(j);
+end

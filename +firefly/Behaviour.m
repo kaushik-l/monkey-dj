@@ -1,9 +1,8 @@
 %{
-# Behavioural data (stimulus parameters, continuous behavioural variables and event markers)
+# Behavioural data (stimulus parameters, continuous behavioural variables and discrete events)
 -> firefly.Session
 -> firefly.SessionList
 -> firefly.DataAcquisitionParam
-block_number=1              : int          # experimental block
 ---
 # add additional attributes
 floor_den=0                 : longblob     # data as array
@@ -17,8 +16,8 @@ landmark_lin=0              : longblob     # data as array
 landmark_ang=0              : longblob     # data as array
 landmark_ground=0           : longblob     # data as array
 replay=0                    : longblob     # data as array
-stop2feedback_int=0         : longblob     # data as array
-intertrial_int=0            : longblob     # data as array
+stop2feedback_intv=0        : longblob     # data as array
+intertrial_intv=0           : longblob     # data as array
 reward_duration=0           : longblob     # data as array
 
 leye_horpos=0               : longblob     # data as array
@@ -41,8 +40,7 @@ hand_x=0                    : longblob     # data as array
 hand_y=0                    : longblob     # data as array
 behv_time=0                 : longblob     # data as array
 
-behv_tstart=0               : longblob     # data as array (offset for event markers)
-behv_filestart=0            : longblob     # data as array
+behv_tblockstart=0          : longblob     # data as array (offset for event markers)
 behv_tsac=0                 : longblob     # data as array
 %}
 
@@ -60,25 +58,21 @@ classdef Behaviour < dj.Imported
             
             prs = fetch(firefly.DataAcquisitionParam,'*');
             analysisprs = fetch(firefly.AnalysisParam,'*'); analysisprs.eyechannels = eyechannels;
-            [chdata,chnames,eventdata,eventnames] = PrepareSMRData(filepath,prs,analysisprs);       % prepare SMR data
-            [paramnames,paramvals] = PrepareLogData(filepath);                                      % prepare log data 
+            [chdata,chnames,eventdata,eventnames,ntrialevents] = PrepareSMRData(filepath,prs,analysisprs);      % prepare SMR data
+            [paramnames,paramvals] = PrepareLogData(filepath,ntrialevents);                                                  % prepare log data 
             selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
-            nblocks = numel(chdata);
-            for j=1:nblocks
-                key.block_number = j;
-                for i=1:length(selfAttributes)
-                    if any(strcmp(chnames{j},selfAttributes{i}))
-                        key.(selfAttributes{i}) = chdata{j}(strcmp(chnames{j},selfAttributes{i}),:);
-                    elseif any(strcmp(eventnames{j},selfAttributes{i}))
-                        key.(selfAttributes{i}) = eventdata{j}{strcmp(eventnames{j},selfAttributes{i})};
-                    elseif any(strcmp(paramnames{j},selfAttributes{i}))
-                        key.(selfAttributes{i}) = paramvals{j}(strcmp(paramnames{j},selfAttributes{i}),:);
-                    end
+            for i=1:length(selfAttributes)
+                if any(strcmp(chnames,selfAttributes{i}))
+                    key.(selfAttributes{i}) = chdata(strcmp(chnames,selfAttributes{i}),:);
+                elseif any(strcmp(eventnames,selfAttributes{i}))
+                    key.(selfAttributes{i}) = eventdata{strcmp(eventnames,selfAttributes{i})};
+                elseif any(strcmp(paramnames,selfAttributes{i}))
+                    key.(selfAttributes{i}) = paramvals(strcmp(paramnames,selfAttributes{i}),:);
                 end
-                self.insert(key);
-            end            
-            fprintf('Populated %d block(s) of behavioural data for experiment done on %s with monkey %s \n',...
-                nblocks,key.session_date,key.monk_name);
+            end
+            self.insert(key);
+            fprintf('Populatedbehavioural data for experiment done on %s with monkey %s \n',...
+                key.session_date,key.monk_name);
         end
     end
 end
