@@ -4,22 +4,22 @@
 -> firefly.SessionList
 -> firefly.DataAcquisitionParam  
 -> firefly.ElectrodeParam
-cluster_id                  : int
+cluster_id                  : int               # cluster number
 ---
 # add additional attributes
-channel_id                  : int     
-electrode_id                : int     
-electrode_type              : varchar(128)      
-unit_type                   : varchar(20)       # 'sua', 'mua'
-brain_area                  : varchar(128)
+channel_id                  : int               # channel number
+electrode_id                : int               # electrode number
+electrode_type              : varchar(128)      # electrode type ['utah96','utah2x48','linearprobe32',...] 
+unit_type                   : varchar(20)       # cluster type ['sua', 'mua']
+brain_area                  : varchar(128)      # brain area targeted by electrode
 
-spike_times                 : longblob
-spike_waveform              : blob
-spike_width                 : float
-neuron_tblockstart=0        : longblob
-neuron_tbeg=0               : longblob
-neuron_tend=0               : longblob
-neuron_trew=0               : longblob
+spike_times                 : longblob          # spike times [s]
+spike_waveform              : blob              # spike waveform [muV]
+spike_width                 : float             # spike width [ms]
+neuron_tblockstart=0        : longblob          # block start markers [s]
+neuron_tbeg=0               : longblob          # target onset marker [s]
+neuron_tend=0               : longblob          # end of trial marker [s]
+neuron_trew=0               : longblob          # reward marker [s]
 %}
 
 classdef Neuron < dj.Imported

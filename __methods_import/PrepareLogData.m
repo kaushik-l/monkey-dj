@@ -20,6 +20,11 @@ for j=1:nblocks
 end
 
 paramnames = [fieldnames(trials{1}(1).prs) ; fieldnames(trials{1}(1).logical)];
+paramvals(end+1,:) = paramvals(strcmp(paramnames,'v_max'),:)/min(paramvals(strcmp(paramnames,'v_max'),:));
+paramvals(end+1,:) = paramvals(strcmp(paramnames,'w_max'),:)/min(paramvals(strcmp(paramnames,'w_max'),:));
+paramnames{end+1} = 'v_gain';
+paramnames{end+1} = 'w_gain';
+
 %% rename the paramnames to match with attributes of Stimulus table
 paramnames{strcmp(paramnames,'floordensity')} = 'floor_den';
 paramnames{strcmp(paramnames,'ptb_linear')} = 'ptb_linvel';

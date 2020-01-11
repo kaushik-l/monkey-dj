@@ -4,20 +4,20 @@
 -> firefly.SessionList
 -> firefly.DataAcquisitionParam  
 -> firefly.ElectrodeParam
-channel_id                  : int
+channel_id                  : int               # channel number
 ---
 # add additional attributes
-electrode_id                : int     
-electrode_type              : varchar(128) 
-brain_area                  : varchar(128)
+electrode_id                : int               # electrode number
+electrode_type              : varchar(128)      # electrode type ['utah96','utah2x48','linearprobe32',...]
+brain_area                  : varchar(128)      # brain area targeted by electrode
  
-lfp_amplitude               : longblob
-lfp_time                    : longblob
+lfp_amplitude               : longblob          # lfp amplitude [muV]
+lfp_time                    : longblob          # time index [s]
 
-lfp_tblockstart=0           : longblob
-lfp_tbeg=0                  : longblob
-lfp_tend=0                  : longblob
-lfp_trew=0                  : longblob
+lfp_tblockstart=0           : longblob          # block start markers [s]
+lfp_tbeg=0                  : longblob          # target onset marker [s]
+lfp_tend=0                  : longblob          # end of trial marker [s]
+lfp_trew=0                  : longblob          # reward marker [s]
 %}
 
 classdef Lfp < dj.Imported

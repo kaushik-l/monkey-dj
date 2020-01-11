@@ -20,6 +20,9 @@ replay=0                    : double
 stop2feedback_intv=0        : double       
 intertrial_intv=0           : double       
 reward_duration=0           : double
+attempted=0                 : double
+rewarded=0                  : double
+perturbed=0                 : double
 spurious_targ=0             : double
 
 leye_horpos=0               : longblob     # data as array
@@ -38,6 +41,13 @@ firefly_x=0                 : longblob     # data as array
 firefly_y=0                 : longblob     # data as array
 monkey_x=0                  : longblob     # data as array
 monkey_y=0                  : longblob     # data as array
+monkey_xtraj=0              : longblob     # data as array
+monkey_ytraj=0              : longblob     # data as array
+monkey_phitraj=0            : longblob     # data as array
+dist2firefly_x=0            : longblob     # data as array
+dist2firefly_y=0            : longblob     # data as array
+dist2firefly_r=0            : longblob     # data as array
+dist2firefly_th=0           : longblob     # data as array
 hand_x=0                    : longblob     # data as array
 hand_y=0                    : longblob     # data as array
 behv_time=0                 : longblob     # data as array
@@ -58,9 +68,10 @@ classdef TrialBehaviour < dj.Computed
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'],'*');
             event_data = fetch(firefly.Event &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'],'*');
+            stimulusprs = fetch(firefly.StimulusParam,'*');
             analysisprs = fetch(firefly.AnalysisParam,'*');
             
-            trials = SegmentBehaviouralData(behv_data,event_data,analysisprs);
+            trials = SegmentBehaviouralData(behv_data,event_data,analysisprs,stimulusprs);
             selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
             ntrials = numel(trials);
             for j=1:ntrials
