@@ -1,0 +1,9 @@
+linear regression by minimizing the vertical distance between the fitted line and the raw data
+
+script gives R, p, slope, 95% confident interval and intercept.
+
+You can run regress_perp.m
+
+coded by li nuo
+
+Yong Gu 02/21/2006
