@@ -8,7 +8,9 @@ trial_number=1              : int          # trial number
 # add additional attributes
 floor_den=0                 : double       
 v_max=0                     : double       
-w_max=0                     : double       
+w_max=0                     : double
+v_gain=0                    : double
+w_gain=0                    : double
 ptb_linvel=0                : double       
 ptb_angvel=0                : double       
 ptb_delay=0                 : double       
