@@ -1,4 +1,4 @@
-function [rewardwin, pCorrect, pCorrect_shuffled_mu] = ...
+function [rewardwin, pCorrect, pCorrect_shuffled_mu, auc] = ...
     ComputeROCFirefly(X_fly,X_monk,maxrewardwin,npermutations)
 
 %% initialise
@@ -30,3 +30,6 @@ for j=1:length(rewardwin)
     end
     pCorrect_shuffled_mu(j) = mean(pCorrect_shuffled);
 end
+
+%% AUC
+auc = sum(diff(pCorrect_shuffled_mu).*pCorrect(2:end));

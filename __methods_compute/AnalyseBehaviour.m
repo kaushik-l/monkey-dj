@@ -30,12 +30,17 @@ dist2firefly_shuffled = sqrt((firefly_x(indx) - monkey_xf).^2 + (firefly_y(indx)
 [M2_beta_r, M2_alpha_r, M2_betaCI_r, M2_alphaCI_r] = regress_perp(firefly_r(:), monkey_rf(:), 0.05, 1);
 [M2_beta_th, M2_alpha_th, M2_betaCI_th, M2_alphaCI_th] = regress_perp(firefly_th(:), monkey_thf(:), 0.05, 1);
 
+%% local linear regression 
+[x,y] = NPregress_locallinear(firefly_r,monkey_rf,[],[],[],[],[]); M3_r = x.mu(:); M3_betalocal_r = y.mu(:);
+[x,y] = NPregress_locallinear(firefly_th,monkey_thf,[],[],[],[],[]); M3_th = x.mu(:); M3_betalocal_th = y.mu(:);
+
 %% ROC curve
 maxrewardwin = analysisprs.maxrewardwin;
 npermutations = analysisprs.npermutations;
-[roc_rewardwin ,roc_pCorrect, roc_pCorrect_shuffled] = ComputeROCFirefly([firefly_r(:) (pi/180)*firefly_th(:)],...
+[roc_rewardwin, roc_pCorrect, roc_pCorrect_shuffled, auc] = ComputeROCFirefly([firefly_r(:) (pi/180)*firefly_th(:)],...
     [monkey_rf(:) (pi/180)*monkey_thf(:)],maxrewardwin,npermutations);
-auc = sum(diff(roc_pCorrect_shuffled).*roc_pCorrect(2:end));
+[auc_rbin, auc_r, auc_thbin, auc_th] = ComputeROCFireflyLocation([firefly_r(:) (pi/180)*firefly_th(:)],...
+    [monkey_rf(:) (pi/180)*monkey_thf(:)],maxrewardwin);
 
 %% spatial analyses
 % spatial map of response variance
@@ -78,6 +83,10 @@ stats.m2_alpha_r = M2_alpha_r;
 stats.m2_alphaci_r = M2_alphaCI_r;                
 stats.m2_alpha_th = M2_alpha_th;                 
 stats.m2_alphaci_th = M2_alphaCI_th;
+stats.m3_r = M3_r;
+stats.m3_betalocal_r = M3_betalocal_r;
+stats.m3_th = M3_th;   
+stats.m3_betalocal_th = M3_betalocal_th;
 stats.corr_r = corr_r;
 stats.pval_r = pval_r;
 stats.corr_th = corr_th;
@@ -87,6 +96,10 @@ stats.roc_rewardwin = roc_rewardwin;
 stats.roc_pcorrect = roc_pCorrect;
 stats.roc_pcorrect_shuffled = roc_pCorrect_shuffled;
 stats.auc = auc;
+stats.auc_rbin = auc_rbin;
+stats.auc_r = auc_r;
+stats.auc_thbin = auc_thbin;
+stats.auc_th = auc_th;
 
 stats.spatial_x = spatial_x;
 stats.spatial_y = spatial_y;

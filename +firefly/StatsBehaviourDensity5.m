@@ -41,6 +41,10 @@ roc_rewardwin=0             : blob
 roc_pcorrect=0              : blob
 roc_pcorrect_shuffled=0     : blob
 auc=0                       : double
+auc_rbin=0                  : blob
+auc_r=0                     : blob
+auc_thbin=0                 : blob
+auc_th=0                    : blob
 
 spatial_x=0                 : longblob
 spatial_y=0                 : longblob
