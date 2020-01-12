@@ -15,7 +15,8 @@ for block = 1:nblocks
     tptb = [tptb ; event_data.tptb(trialindx) - event_data.tblockstart(block) + behv_data.behv_tblockstart(block)];
     tmove = [tmove ; event_data.tmove(trialindx) - event_data.tblockstart(block) + behv_data.behv_tblockstart(block)];
     tstop = [tstop ; event_data.tstop(trialindx) - event_data.tblockstart(block) + behv_data.behv_tblockstart(block)];
-    tsac = [tsac ; behv_data.behv_tsac(trialindx)];
+    tsac = [tsac ; behv_data.behv_tsac(behv_data.behv_tsac > event_data.tblockstart(block) & behv_data.behv_tsac < event_data.tblockstart(block+1))...
+        - event_data.tblockstart(block) + behv_data.behv_tblockstart(block)];
 end
 ntrials = numel(tend);
 
