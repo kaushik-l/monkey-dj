@@ -1,6 +1,5 @@
 function stats = AnalyseBehaviour(trials,analysisprs,stimulusprs)
 
-analysisprs.maxrewardwin = 400; %##$$#$# move to analysisparam table
 x0 = stimulusprs.x0; y0 = stimulusprs.y0;
 ntrials = numel(trials);
 for j=1:ntrials

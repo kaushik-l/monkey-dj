@@ -1,4 +1,4 @@
-function trials = SegmentLfpData(lfp_data,event_data,analysisprs)
+function trials = SegmentLfpData(lfp_data,event_data,analysisprs,freqrange)
 
 %% gather events
 nblocks = numel(lfp_data.lfp_tblockstart);
@@ -17,13 +17,32 @@ for block = 1:nblocks
 end
 ntrials = numel(tend);
 
+%% filter LFP
+t = lfp_data.lfp_time;                                % timepoints
+dt = round(median(diff(lfp_data.lfp_time))*1e4)*1e-4; % timesteps
+fs = 1/dt;
+switch freqrange
+    case 'raw'
+        % full range
+        [b,a] = butter(analysisprs.lfp_filtorder,[analysisprs.lfp_filt(1) analysisprs.lfp_filt(2)]/(fs/2));
+        lfp_data.lfp_amplitude = filtfilt(b,a,lfp_data.lfp_amplitude);
+    case 'theta'
+        % theta range
+        [b,a] = butter(analysisprs.lfp_filtorder,[analysisprs.lfp_theta(1) analysisprs.lfp_theta(2)]/(fs/2));
+        lfp_data.lfp_amplitude = filtfilt(b,a,lfp_data.lfp_amplitude);
+    case 'beta'
+        % beta range
+        [b,a] = butter(analysisprs.lfp_filtorder,[analysisprs.lfp_beta(1) analysisprs.lfp_beta(2)]/(fs/2));
+        lfp_data.lfp_amplitude = filtfilt(b,a,lfp_data.lfp_amplitude);
+end
+% hilbert transform
+lfp_data.lfp_amplitude = hilbert(lfp_data.lfp_amplitude);
+
 %% gather fieldnames
 fieldnames = fields(lfp_data);
 fieldnames_continuous = fieldnames(cellfun(@(k) (length(lfp_data.(k))==length(lfp_data.lfp_time)), fieldnames));
 
 %% extract trials and downsample for storage
-t = lfp_data.lfp_time;                                % timepoints
-dt = round(median(diff(lfp_data.lfp_time))*1e4)*1e-4; % timesteps
 for j=1:ntrials
     %% save continuous variables
     % define pretrial and posttrial periods
