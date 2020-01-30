@@ -47,9 +47,11 @@ Temporary Items
 ### MATLAB ###
 # Windows default autosave extension
 *.asv
++firefly/*.asv
 
 # OSX / *nix default autosave extension
 *.m~
++firefly/*.m~
 
 # Compiled MEX binaries (all platforms)
 *.mex*
@@ -106,6 +108,7 @@ MANIFEST
 
 # MATLAB autosave
 *.asv
++firefly/*.asv
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
