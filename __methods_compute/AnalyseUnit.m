@@ -1,7 +1,7 @@
 function stats = AnalyseUnit(trials,trialsbehv,trialslfp,analysisprs)
 
 ntrials = numel(trials);
-twin = [-1 1]; %analysisprs.neuron_eventtriggerwindow;
+twin = analysisprs.neuron_eventtriggerwindow;
 dt = analysisprs.dt;
 nbootstraps = analysisprs.nbootstraps;
 minpeakprom = analysisprs.minpeakprom_neural;
@@ -11,6 +11,7 @@ duration_zeropad = analysisprs.duration_zeropad;
 duration_nanpad = analysisprs.duration_nanpad;
 corr_lag = analysisprs.corr_lag;
 sta_window = analysisprs.sta_window;
+sfc_window = analysisprs.sfc_window;
 spectralparams.tapers = analysisprs.spectrum_tapers;
 spectralparams.Fs = 1/dt;
 spectralparams.trialave = analysisprs.spectrum_trialave;
@@ -144,10 +145,9 @@ stats.tuning_phase = tuning_phase.tuning.stim.mu;
 stats.tuning_phaserate = tuning_phase.tuning.rate.mu;
 stats.tuning_phasepval = tuning_phase.tuning.rate.mu;
 
-
-%% spike-triggered average of LFP
+%% spike-triggered average of LFP (###do as a function of time rel. to events)
 sta = SpikeTriggeredLFP({trialslfp.lfp_amplitude},{trialslfp.lfp_time},{trials.spike_times},...
-    timewindow_path,sta_window,duration_nanpad,spectralparams);
+    timewindow_path,sta_window,sfc_window,duration_nanpad,spectralparams);
 stats.spiketrig_time = sta.t(:);
 stats.spiketrig_avg = sta.lfp(:);
 stats.spikefield_freq = sta.f(:);

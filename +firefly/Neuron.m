@@ -5,14 +5,13 @@
 -> firefly.DataAcquisitionParam  
 -> firefly.ElectrodeParam
 cluster_id                  : int               # cluster number
----
-# add additional attributes
 channel_id                  : int               # channel number
 electrode_id                : int               # electrode number
 electrode_type              : varchar(128)      # electrode type ['utah96','utah2x48','linearprobe32',...] 
-unit_type                   : varchar(20)       # cluster type ['sua', 'mua']
 brain_area                  : varchar(128)      # brain area targeted by electrode
-
+unit_type                   : varchar(20)       # cluster type ['sua', 'mua']
+---
+# add additional attributes
 spike_times                 : longblob          # spike times [s]
 spike_waveform              : blob              # spike waveform [muV]
 spike_width                 : float             # spike width [ms]

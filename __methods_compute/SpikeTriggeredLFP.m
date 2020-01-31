@@ -1,4 +1,4 @@
-function sta = SpikeTriggeredLFP(lfp,ts,tspk,timewindow,sta_window,duration_nanpad,spectralparams)
+function sta = SpikeTriggeredLFP(lfp,ts,tspk,timewindow,sta_window,sfc_window,duration_nanpad,spectralparams)
 
 %% concatenate
 dt = median(diff(cell2mat(ts')));
@@ -13,12 +13,11 @@ for i=1:nspk
     lfp_segment(i,:) = xt_pad(spkindx(i)+winlength(1):spkindx(i)+winlength(2));
 end
 % output sta
-sta.t = linspace(-1,1,diff(winlength)+1); sta.lfp = nanmean(lfp_segment);
+sta.t = linspace(sta_window(1),sta_window(2),diff(winlength)+1); sta.lfp = nanmean(lfp_segment);
 
 %% repeat with small window for esimating spike-field coherence
 % compute sta
-coherence_window = [-0.5 0.5]; % 1Hz resolution
-winlength = round(coherence_window/dt);
+winlength = round(sfc_window/dt);
 spkindx = find(yt_pad==1); nspk = length(spkindx);
 lfp_segment = nan(nspk,diff(winlength)+1);
 for i=1:nspk
@@ -26,8 +25,8 @@ for i=1:nspk
 end
 use_spkindx = find(~any(isnan(lfp_segment),2)); % use only spikes with NO nans in the lfp segment around them
 if numel(use_spkindx) > 1
-    [S_lfp,f]=mtspectrumc(lfp_segment(use_spkindx,:)',spectralparams); % AVERAGE spectrum of lfp segments
-    S_sta=mtspectrumc(mean(lfp_segment(use_spkindx,:)),spectralparams); % spectrum of AVERAGE lfp segments
+    [S_lfp,f]=mtspectrumc(real(lfp_segment(use_spkindx,:))',spectralparams); % AVERAGE spectrum of lfp segments
+    S_sta=mtspectrumc(mean(real(lfp_segment(use_spkindx,:))),spectralparams); % spectrum of AVERAGE lfp segments
     % compute sfc
     coh = S_sta(:)./S_lfp(:);
     coh_unbiased = (numel(use_spkindx)*coh - 1)/(numel(use_spkindx) - 1); % Grasse & Moxon (2010)

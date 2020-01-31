@@ -5,12 +5,11 @@
 -> firefly.DataAcquisitionParam  
 -> firefly.ElectrodeParam
 channel_id                  : int               # channel number
----
-# add additional attributes
 electrode_id                : int               # electrode number
 electrode_type              : varchar(128)      # electrode type ['utah96','utah2x48','linearprobe32',...]
 brain_area                  : varchar(128)      # brain area targeted by electrode
- 
+---
+# add additional attributes
 lfp_amplitude               : longblob          # lfp amplitude [muV]
 lfp_time                    : longblob          # time index [s]
 
