@@ -17,6 +17,7 @@ lfp_tmove=0                 : longblob          # target onset marker [s]
 lfp_tstop=0                 : longblob          # target onset marker [s]
 lfp_trew=0                  : longblob          # reward marker [s]
 lfp_tend=0                  : longblob          # end of trial marker [s]
+lfp_tptb=0                  : tinyblob          # data as array
 %}
 
 classdef LfpPopulation < dj.Imported
@@ -44,6 +45,7 @@ classdef LfpPopulation < dj.Imported
                     key.lfp_tend = lfps(1).lfp_tstop;
                     key.lfp_trew = lfps(1).lfp_trew;
                     key.lfp_tend = lfps(1).lfp_tend;
+                    key.lfp_tptb = lfps(1).lfp_tptb;
                     self.insert(key);
                     fprintf('Populated lfp population from trial %d for experiment done on %s with animal %s \n',...
                         key.trial_number,key.session_date,key.monk_name);
