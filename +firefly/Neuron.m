@@ -48,7 +48,7 @@ classdef Neuron < dj.Imported
                 brain_area = brain_area{strcmp(electrode_type,utaharray_types{utaharray_type})};
                 fprintf(['... reading events from ' file_nev.name '\n']);
                 events_nev = GetEvents_nev(file_nev.name); % requires package from Blackrock Microsystems: https://github.com/BlackrockMicrosystems/NPMK
-                events_nev = InsertNaN2rewardtimes(events_nev);
+                events_nev = InsertNaN2eventtimes(events_nev);
                 fs_spk = fetch1(firefly.DataAcquisitionParam,'fs_ns6');         
                 nsua = length(sua);
                 units = [sua mua]; nunits = length(units); 

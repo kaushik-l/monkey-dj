@@ -9,9 +9,14 @@ paramvals = [];
 fieldvalues = @(MyStruct)(cellfun(@(fieldName)(double(MyStruct.(fieldName))),fieldnames(MyStruct)));
 for j=1:nblocks
     ntrials = ntrialevents(j);
-    trials{j} = AddLOGData(flist_log(j).name);     
-    vals = cell2mat(arrayfun(@(k) [fieldvalues(trials{j}(k).prs) ; fieldvalues(trials{j}(k).logical)],...
-        1:numel(trials{j}),'UniformOutput',false));
+    trials{j} = AddLOGData(flist_log(j).name);   
+    try
+        vals = cell2mat(arrayfun(@(k) [fieldvalues(trials{j}(k).prs) ; fieldvalues(trials{j}(k).logical)],...
+            1:numel(trials{j}),'UniformOutput',false));
+    catch % last trial probably incomplete so skip it
+        vals = cell2mat(arrayfun(@(k) [fieldvalues(trials{j}(k).prs) ; fieldvalues(trials{j}(k).logical)],...
+            1:numel(trials{j})-1,'UniformOutput',false));
+    end
     if size(vals,2) >= ntrials, paramvals = [paramvals vals(:,1:ntrials)];
     else
         nextratrials = ntrials - size(vals,2);

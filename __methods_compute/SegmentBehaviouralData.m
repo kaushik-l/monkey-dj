@@ -79,6 +79,9 @@ for j=1:ntrials
     %% generate monkey trajectories by integrating velocity (redundant but smoother than raw)
     if isfield(trials(j),'joy_linvel') && isfield(trials(j),'joy_angvel')
         vt = trials(j).joy_linvel; wt = trials(j).joy_angvel; ts = trials(j).behv_time;
+        if isnan(trials(j).stop2feedback_intv), trials(j).stop2feedback_intv = 0; end
+        if isnan(trials(j).intertrial_intv), trials(j).intertrial_intv = 0; end
+        if isnan(trials(j).firefly_on), trials(j).firefly_on = 0; end
         indx = ts>trials(j).behv_tbeg & ts<(trials(j).behv_tstop+trials(j).stop2feedback_intv);
         trials(j).monkey_xtraj = nan(1,numel(ts));
         trials(j).monkey_ytraj = nan(1,numel(ts));
@@ -100,7 +103,7 @@ for j=1:ntrials
     yfinal = trials(j).monkey_ytraj(find(~isnan(trials(j).monkey_ytraj),1,'last'));
     vfinal = trials(j).joy_linvel(find(trials(j).behv_time > trials(j).behv_tend,1));
     wfinal = trials(j).joy_angvel(find(trials(j).behv_time > trials(j).behv_tend,1));
-    if ~((yfinal<0) || (abs(vfinal)>v_thresh) || (abs(wfinal)>w_thresh) || (trials(j).behv_tstop>tmax))
+    if ~isempty(yfinal) && ~((yfinal<0) || (abs(vfinal)>v_thresh) || (abs(wfinal)>w_thresh) || (trials(j).behv_tstop>tmax))
         trials(j).attempted = 1;
     else, trials(j).attempted = 0;
     end

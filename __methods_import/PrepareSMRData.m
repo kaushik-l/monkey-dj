@@ -161,7 +161,7 @@ for block = 1:nblocks
         events_smr.t_ptb = t_events(markers==5 | markers==8);
         if isempty(events_smr.t_ptb), events_smr.t_ptb = nan(size(events_smr.t_end)); end
         
-        events_smr = InsertNaN2rewardtimes(events_smr);
+        events_smr = InsertNaN2eventtimes(events_smr);
         
         %% refine t_beg to ensure it corresponds to target onset
         jitter = prs.jitter_marker;
