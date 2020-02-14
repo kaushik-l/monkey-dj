@@ -1,6 +1,6 @@
 %{
 # Population of neurons (pca, canoncorr)
--> firefly.NeuronPopulation
+-> firefly.SpikePopulation
 -> firefly.AnalysisParam
 ---
 # add additional attributes
@@ -10,10 +10,10 @@ pca_score                       : longblob
 
 %}
 
-classdef StatsNeuronPopulationAll < dj.Computed
+classdef StatsSpikePopulationAll < dj.Computed
     methods(Access=protected)
         function makeTuples(self,key)
-            population = fetch(firefly.NeuronPopulation &...
+            population = fetch(firefly.SpikePopulation &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'],'*');
             analysisprs = fetch(firefly.AnalysisParam,'*');
             trialsbehv = fetch(firefly.TrialBehaviour &...
@@ -33,7 +33,7 @@ classdef StatsNeuronPopulationAll < dj.Computed
                 end
             end
             self.insert(key);
-            fprintf('Populated neuron population stats across all trials for experiment done on %s with monkey %s \n',...
+            fprintf('Populated spike population stats across all trials for experiment done on %s with monkey %s \n',...
                 key.session_date,key.monk_name);
         end
     end

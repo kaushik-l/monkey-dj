@@ -3,10 +3,10 @@
 arrayparam_id=1                         : int      # unique id for this paramater set
 ---
 # list of parameters
-lineararray_types=0                     : blob
-lineararray_channelcount=0              : blob              
-utaharray_types=0                       : blob
-utaharray_channelcount=0                : blob              
+lineararray_types=0                     : blob     # types of linear arrays
+lineararray_channelcount=0              : blob     # channel counts of linear arrays             
+utaharray_types=0                       : blob     # types of utah arrays
+utaharray_channelcount=0                : blob     # channel counts of utah arrays       
 %}
 
 classdef ElectrodeParam < dj.Lookup

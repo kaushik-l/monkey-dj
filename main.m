@@ -40,3 +40,33 @@ insert(firefly.Session,{'Quigley','2017-08-03',147,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-08-04',148,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-08-08',149,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-08-09',150,'Erin Neyhart'});
+
+%% populate static tables
+firefly.SessionList;
+firefly.ElectrodeParam;
+firefly.DataAcquisitionParam;
+firefly.StimulusParam;
+firefly.AnalysisParam;
+
+%% populate basic tables - behavior, events, neuron, lfp (imported)
+populate(firefly.Behaviour);
+populate(firefly.Event);
+populate(firefly.Neuron);
+populate(firefly.Lfp);
+
+%% populate tables with segmented trials (computed)
+populate(firefly.TrialBehaviour);
+populate(firefly.TrialNeuron);
+populate(firefly.TrialLfp);
+populate(firefly.TrialLfpbeta);
+populate(firefly.TrialLfptheta);
+
+%% populate results tables (computed)
+populate(firefly.StatsBehaviour);
+populate(firefly.StatsBehaviourAll); % quick version - analyse all trials without splitting into conditions
+populate(firefly.StatsEye);
+populate(firefly.StatsEyeAll); % quick version - analyse all trials without splitting into conditions
+populate(firefly.StatsLfpAll);
+populate(firefly.StatsLfpthetaAll);
+populate(firefly.StatsLfpbetaAll);
+populate(firefly.StatsNeuronAll);

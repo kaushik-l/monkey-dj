@@ -3,17 +3,17 @@
 -> firefly.Neuron
 -> firefly.Event
 -> firefly.AnalysisParam
-trial_number=1              : int          # trial number
+trial_number=1              : int           # trial number
 ---
 # add additional attributes
-spike_times                 : longblob
+spike_times                 : longblob      # time of spikes
 
-neuron_tbeg=0               : tinyblob        # data as array
-neuron_tmove=0              : tinyblob        # data as array
-neuron_tstop=0              : tinyblob        # data as array
-neuron_trew=0               : tinyblob        # data as array
-neuron_tend=0               : tinyblob        # data as array
-neuron_tptb=0               : tinyblob        # data as array
+neuron_tbeg=0               : tinyblob      # time when target appeared
+neuron_tmove=0              : tinyblob      # time when movement started
+neuron_tstop=0              : tinyblob      # time when movement ended
+neuron_trew=0               : tinyblob      # time when reward delivered
+neuron_tend=0               : tinyblob      # time when trial ended
+neuron_tptb=0               : tinyblob      # time when perturbation started
 %}
 
 classdef TrialNeuron < dj.Computed

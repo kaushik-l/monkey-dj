@@ -8,14 +8,14 @@ trial_number=1              : int               # trial number
 # add additional attributes
 lfp_freqrange               : blob              # [fmin fmax]
 lfp_amplitude               : longblob          # hilbert-transformed
-lfp_time                    : longblob
+lfp_time                    : longblob          # time index
 
-lfp_tbeg=0                  : tinyblob          # data as array
-lfp_tmove=0                 : tinyblob          # data as array
-lfp_tstop=0                 : tinyblob          # data as array
-lfp_trew=0                  : tinyblob          # data as array
-lfp_tend=0                  : tinyblob          # data as array
-lfp_tptb=0                  : tinyblob          # data as array
+lfp_tbeg=0                  : tinyblob          # time when target appeared
+lfp_tmove=0                 : tinyblob          # time when movement started
+lfp_tstop=0                 : tinyblob          # time when movement ended
+lfp_trew=0                  : tinyblob          # time when reward delivered
+lfp_tend=0                  : tinyblob          # time when trial ended
+lfp_tptb=0                  : tinyblob          # time when perturbation started
 %}
 
 classdef TrialLfpbeta < dj.Computed
