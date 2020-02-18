@@ -45,7 +45,7 @@ classdef Lfp < dj.Imported
                 file_nev=dir('*.nev');
                 NS1 = openNSx(['/' file_ns1.name],'report','read', 'uV');
                 events_nev = GetEvents_nev(file_nev.name);
-                events_nev = InsertNaN2rewardtimes(events_nev);
+                events_nev = InsertNaN2eventtimes(events_nev);
                 [nchannels, nt] = size(NS1.Data);
                 dt = 1/NS1.MetaTags.SamplingFreq;
                 t = dt:dt:dt*nt;
