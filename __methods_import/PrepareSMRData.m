@@ -1,6 +1,11 @@
-function [chdata_out,chnames_out,eventdata_out,eventnames_out,ntrialevents] = PrepareSMRData(filepath,prs,analysisprs)
+function [chdata_out,chnames_out,eventdata_out,eventnames_out,ntrialevents] = ...
+    PrepareSMRData(filepath,prs,analysisprs,paramnames,paramvals)
 
 cd(filepath);
+
+%% firefly position from log file (if available)
+xfp = paramvals(strcmp(paramnames,'xfp'),:);
+yfp = paramvals(strcmp(paramnames,'yfp'),:);
 
 %% list all files to read
 flist_log=dir('*.log'); 
@@ -37,18 +42,28 @@ for block = 1:nblocks
         chno.yle = find(strcmp(ch_title,'LDy')); chno.zle = find(strcmp(ch_title,'LDz'));
         chno.yre = find(strcmp(ch_title,'RDy')); chno.zre = find(strcmp(ch_title,'RDz'));
         chno.xfp = find(strcmp(ch_title,'FireflyX')); chno.yfp = find(strcmp(ch_title,'FireflyY'));
+        chno.FFDraw = find(strcmp(ch_title,'FFDraw'));
         chno.xmp = find(strcmp(ch_title,'MonkeyX')); chno.ymp = find(strcmp(ch_title,'MonkeyY'));
         chno.v = find(strcmp(ch_title,'ForwardV')); chno.w = find(strcmp(ch_title,'AngularV'));
         chno.mrk = find(strcmp(ch_title,'marker'));
         if ~isempty(find(strcmp(ch_title,'Pulse'), 1)), chno.microstim = find(strcmp(ch_title,'Pulse')); end
+        if isempty(chno.xfp), isavailable_flypos = false;
+        else, isavailable_flypos = true; end
         
         %% scale
         scaling.yle = data(chno.yle).hdr.adc.Scale; offset.yle = data(chno.yle).hdr.adc.DC;
         scaling.yre = data(chno.yre).hdr.adc.Scale; offset.yre = data(chno.yre).hdr.adc.DC;
         scaling.zle = data(chno.zle).hdr.adc.Scale; offset.zle = data(chno.zle).hdr.adc.DC;
         scaling.zre = data(chno.zre).hdr.adc.Scale; offset.zre = data(chno.zre).hdr.adc.DC;
-        scaling.xfp = data(chno.xfp).hdr.adc.Scale; offset.xfp = data(chno.xfp).hdr.adc.DC;
-        scaling.yfp = -data(chno.yfp).hdr.adc.Scale; offset.yfp = -data(chno.yfp).hdr.adc.DC;
+        if isavailable_flypos
+            scaling.xfp = data(chno.xfp).hdr.adc.Scale; offset.xfp = data(chno.xfp).hdr.adc.DC;
+            scaling.yfp = -data(chno.yfp).hdr.adc.Scale; offset.yfp = -data(chno.yfp).hdr.adc.DC;
+        elseif ~isempty(chno.FFDraw)
+            scaling.FFDraw = data(chno.FFDraw).hdr.adc.Scale; offset.FFDraw = data(chno.FFDraw).hdr.adc.DC;
+        else
+            fprintf('firefly position and/or firefly status channels missing \n');
+            return;
+        end
         scaling.xmp = data(chno.xmp).hdr.adc.Scale; offset.xmp = data(chno.xmp).hdr.adc.DC;
         scaling.ymp = -data(chno.ymp).hdr.adc.Scale; offset.ymp = -data(chno.ymp).hdr.adc.DC;
         scaling.v = data(chno.v).hdr.adc.Scale; offset.v = data(chno.v).hdr.adc.DC;
@@ -65,22 +80,36 @@ for block = 1:nblocks
         %% load relevant channels
         chnames = fieldnames(chno); MAX_LENGTH = inf; dt = [];
         for i=1:length(chnames)
-            if ~any(strcmp(chnames{i},'mrk'))
-                ch.(chnames{i}) = double(data(chno.(chnames{i})).imp.adc)*scaling.(chnames{i}) + offset.(chnames{i});
-                dt = [dt prod(data(chno.(chnames{i})).hdr.adc.SampleInterval)];
-                MAX_LENGTH = min(length(ch.(chnames{i})),MAX_LENGTH);
+            if isavailable_flypos
+                if ~any(strcmp(chnames{i},'mrk'))
+                    ch.(chnames{i}) = double(data(chno.(chnames{i})).imp.adc)*scaling.(chnames{i}) + offset.(chnames{i});
+                    dt = [dt prod(data(chno.(chnames{i})).hdr.adc.SampleInterval)];
+                    MAX_LENGTH = min(length(ch.(chnames{i})),MAX_LENGTH);
+                end
+            else
+                if ~any(strcmp(chnames{i},{'mrk','xfp','yfp'}))
+                    ch.(chnames{i}) = double(data(chno.(chnames{i})).imp.adc)*scaling.(chnames{i}) + offset.(chnames{i});
+                    dt = [dt prod(data(chno.(chnames{i})).hdr.adc.SampleInterval)];
+                    MAX_LENGTH = min(length(ch.(chnames{i})),MAX_LENGTH);
+                end
             end
         end
         if length(unique(dt))==1
             dt = dt(1);
         else
             error('channels must all have identical sampling rates');
-        end
+        end     
         
         %% filter position and velocity channels
         for i=1:length(chnames)
-            if ~any(strcmp(chnames{i},{'mrk','yle','yre','zle','zre'}))
-                ch.(chnames{i}) = conv(ch.(chnames{i})(1:MAX_LENGTH),h,'same');
+            if isavailable_flypos
+                if ~any(strcmp(chnames{i},{'mrk','yle','yre','zle','zre'}))
+                    ch.(chnames{i}) = conv(ch.(chnames{i})(1:MAX_LENGTH),h,'same');
+                end
+            else
+                if ~any(strcmp(chnames{i},{'mrk','yle','yre','zle','zre','xfp','yfp'}))
+                    ch.(chnames{i}) = conv(ch.(chnames{i})(1:MAX_LENGTH),h,'same');
+                end
             end
         end
         ch.yle = ch.yle(1:MAX_LENGTH);
@@ -164,24 +193,51 @@ for block = 1:nblocks
         events_smr = InsertNaN2eventtimes(events_smr);
         
         %% refine t_beg to ensure it corresponds to target onset
-        jitter = prs.jitter_marker;
-        dPm__dt = [0 ; sqrt(diff(ch.ymp).^2 + diff(ch.xmp).^2)]; % derivative of monkey position
-        [~,t_teleport] = findpeaks(dPm__dt,dt*(1:length(dPm__dt)),'MinPeakHeight', analysisprs.minpeakprom_monkpos); % detect peaks
-        dPf__dt = [0 ; sqrt(diff(ch.yfp).^2 + diff(ch.xfp).^2)]; % derivative of firefly position
-        [~,t_flyON] = findpeaks(dPf__dt,dt*(1:length(dPf__dt)),'MinPeakHeight',analysisprs.minpeakprom_flypos); % detect peaks
-        t_teleport_trl = nan(length(events_smr.t_beg),1); t_flyON_trl = nan(length(events_smr.t_beg),1);
-        for i=1:length(events_smr.t_beg)
-            t_teleport_temp = t_teleport(t_teleport > (events_smr.t_beg(i) - jitter) &  t_teleport < (events_smr.t_beg(i) + jitter));
-            if ~isempty(t_teleport_temp), t_teleport_trl(i) = t_teleport_temp(end); end
-            t_flyON_temp = t_flyON(t_flyON > (events_smr.t_beg(i) - jitter) &  (t_flyON < events_smr.t_beg(i) + jitter));
-            if ~isempty(t_flyON_temp), t_flyON_trl(i) = t_flyON_temp(end); end
-        end
-        tflyON_minus_teleport = nanmedian(t_flyON_trl - t_teleport_trl);
-        % set trial begin time equal to target onset except for first trial
-        for i=2:length(events_smr.t_beg)
-            if ~isnan(t_flyON_trl(i)), events_smr.t_beg(i) = t_flyON_trl(i);
-            elseif ~isnan(t_teleport_trl(i)), events_smr.t_beg(i) = t_teleport_trl(i) + tflyON_minus_teleport;
+        if isavailable_flypos % use firefly channel to correct for jitter
+            jitter = prs.jitter_marker;
+            dPm__dt = [0 ; sqrt(diff(ch.ymp).^2 + diff(ch.xmp).^2)]; % derivative of monkey position
+            [~,t_teleport] = findpeaks(dPm__dt,dt*(1:length(dPm__dt)),'MinPeakHeight', analysisprs.minpeakprom_monkpos); % detect peaks
+            dPf__dt = [0 ; sqrt(diff(ch.yfp).^2 + diff(ch.xfp).^2)]; % derivative of firefly position
+            [~,t_flyON] = findpeaks(dPf__dt,dt*(1:length(dPf__dt)),'MinPeakHeight',analysisprs.minpeakprom_flypos); % detect peaks
+            t_teleport_trl = nan(length(events_smr.t_beg),1); t_flyON_trl = nan(length(events_smr.t_beg),1);
+            for i=1:length(events_smr.t_beg)
+                t_teleport_temp = t_teleport(t_teleport > (events_smr.t_beg(i) - jitter) &  t_teleport < (events_smr.t_beg(i) + jitter));
+                if ~isempty(t_teleport_temp), t_teleport_trl(i) = t_teleport_temp(end); end
+                t_flyON_temp = t_flyON(t_flyON > (events_smr.t_beg(i) - jitter) &  (t_flyON < events_smr.t_beg(i) + jitter));
+                if ~isempty(t_flyON_temp), t_flyON_trl(i) = t_flyON_temp(end); end
             end
+            tflyON_minus_teleport = nanmedian(t_flyON_trl - t_teleport_trl);
+            % set trial begin time equal to target onset except for first trial
+            for i=2:length(events_smr.t_beg)
+                if ~isnan(t_flyON_trl(i)), events_smr.t_beg(i) = t_flyON_trl(i);
+                elseif ~isnan(t_teleport_trl(i)), events_smr.t_beg(i) = t_teleport_trl(i) + tflyON_minus_teleport;
+                end
+            end
+        else % use FFDraw to correct for jitter
+           jitter = prs.jitter_marker;
+           dPf__dt = [0 ; diff(ch.FFDraw)]; % derivative of firefly ON/OFF status
+           [~,t_flyON] = findpeaks(dPf__dt,dt*(1:length(dPf__dt)),'MinPeakHeight', analysisprs.minpeakprom_flypos); % detect peaks
+           for i=1:length(events_smr.t_beg)
+               t_flyON_temp = t_flyON(t_flyON > (events_smr.t_beg(i) - jitter) &  (t_flyON < events_smr.t_beg(i) + jitter));
+               if ~isempty(t_flyON_temp), events_smr.t_beg(i) = t_flyON_temp(end); end
+           end
+           % create xfp and yfp channels from log file data
+           ch.xfp = zeros(MAX_LENGTH,1); ch.yfp = zeros(MAX_LENGTH,1);
+           for i=1:length(events_smr.t_beg)-1
+               ch.xfp((ch.t >= events_smr.t_beg(i)) & (ch.t < events_smr.t_beg(i+1))) = -xfp(i); % data looks flipped
+               ch.yfp((ch.t >= events_smr.t_beg(i)) & (ch.t < events_smr.t_beg(i+1))) = -yfp(i);
+           end
+           if length(events_smr.t_beg)>=2
+               ch.xfp(ch.t >= events_smr.t_beg(i+1)) = -xfp(i+1);
+               ch.yfp(ch.t >= events_smr.t_beg(i+1)) = -yfp(i+1);
+           end
+           % remove entries corresponding to this block
+           xfp(1:length(events_smr.t_beg)) = [];
+           yfp(1:length(events_smr.t_beg)) = [];
+           ch = rmfield(ch,'FFDraw');
+           chnames(strcmp(chnames,'FFDraw')) = [];
+           chnames(strcmp(chnames,'xfp')) = [];
+           chnames(strcmp(chnames,'yfp')) = [];
         end
         
         %% detect start-of-movement and end-of-movement times for each trial
@@ -258,9 +314,14 @@ chnames_out{strcmp(chnames_out,'zle')} = 'leye_verpos';
 chnames_out{strcmp(chnames_out,'zre')} = 'reye_verpos';
 chnames_out{strcmp(chnames_out,'v')} = 'joy_linvel';
 chnames_out{strcmp(chnames_out,'w')} = 'joy_angvel';
-chnames_out{strcmp(chnames_out,'xfp')} = 'firefly_x';
-chnames_out{strcmp(chnames_out,'yfp')} = 'firefly_y';
 chnames_out{strcmp(chnames_out,'xmp')} = 'monkey_x';
 chnames_out{strcmp(chnames_out,'ymp')} = 'monkey_y';
 chnames_out{end} = 'behv_time';
+if isavailable_flypos
+    chnames_out{strcmp(chnames_out,'xfp')} = 'firefly_x';
+    chnames_out{strcmp(chnames_out,'yfp')} = 'firefly_y';
+else
+    chnames_out{end+1} = 'firefly_x';
+    chnames_out{end+1} = 'firefly_y';
+end
 eventnames_out = {'tbeg' ; 'trew' ; 'tend' ; 'tptb' ; 'tmove' ; 'tstop' ; 'behv_tsac' ; 'behv_tblockstart'};

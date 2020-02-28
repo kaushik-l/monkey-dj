@@ -2,6 +2,7 @@
 insert(firefly.Monkey,{'Bruno',51,"M"});
 insert(firefly.Monkey,{'Schro',53,"M"});
 insert(firefly.Monkey,{'Quigley',44,"M"});
+insert(firefly.Monkey,{'Sparky',70,"M"});
 
 %% add sessions
 insert(firefly.Session,{'Bruno','2017-08-03',41,'Erin Neyhart'});
@@ -19,6 +20,9 @@ insert(firefly.Session,{'Schro','2018-02-20',41,'Erin Neyhart'});
 insert(firefly.Session,{'Schro','2018-02-21',42,'Erin Neyhart'});
 insert(firefly.Session,{'Schro','2018-02-26',43,'Erin Neyhart'});
 insert(firefly.Session,{'Schro','2018-02-27',44,'Erin Neyhart'});
+insert(firefly.Session,{'Schro','2018-02-28',45,'Erin Neyhart'});
+insert(firefly.Session,{'Schro','2018-03-01',46,'Erin Neyhart'});
+insert(firefly.Session,{'Schro','2018-03-02',47,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-02-25',61,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-02-27',62,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-02-28',63,'Erin Neyhart'});
@@ -40,6 +44,7 @@ insert(firefly.Session,{'Quigley','2017-08-03',147,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-08-04',148,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-08-08',149,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-08-09',150,'Erin Neyhart'});
+insert(firefly.Session,{'Sparky','2020-01-31',1,'Sina Salehi'});
 
 %% populate static tables
 firefly.SessionList;

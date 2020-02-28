@@ -6,7 +6,7 @@
 trial_type                  : varchar(128)      # type of trial ['all', ...
 'density1', 'density2', 'density3', 'density5', 'density4', 'gain1', ...
 'gain2', 'gain3', 'fireflyoff', 'fireflyon', 'unrewarded', 'rewarded',...
-'unperturbed','perturbed']
+'unperturbed','perturbed', 'replay']
 ---
 # add additional attributes
 firefly_x=0                 : longblob          # firefly x position [cm]    
@@ -71,7 +71,7 @@ classdef StatsBehaviour < dj.Computed
             %% all attempted trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                'attempted=1','*');
+                'attempted=1' & 'replay=0','*');
             stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);            
             selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
             for i=1:length(selfAttributes)
@@ -86,7 +86,7 @@ classdef StatsBehaviour < dj.Computed
             %% density 0.005 trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                'attempted=1' & 'floor_den=0.005','*');
+                'attempted=1' & 'replay=0' & 'floor_den=0.005','*');
             if numel(trials) >= analysisprs.mintrialsforstats
                 stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);                
                 selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
@@ -106,7 +106,7 @@ classdef StatsBehaviour < dj.Computed
             %% density 0.001 trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                'attempted=1' & 'floor_den=0.001','*');
+                'attempted=1' & 'replay=0' & 'floor_den=0.001','*');
             if numel(trials) >= analysisprs.mintrialsforstats
                 stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);                
                 selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
@@ -126,7 +126,7 @@ classdef StatsBehaviour < dj.Computed
             %% density 0.0005 trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                'attempted=1' & 'floor_den=0.0005','*');
+                'attempted=1' & 'replay=0' & 'floor_den=0.0005','*');
             if numel(trials) >= analysisprs.mintrialsforstats
                 stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);                
                 selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
@@ -146,7 +146,7 @@ classdef StatsBehaviour < dj.Computed
             %% density 0.0001 trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                'attempted=1' & 'floor_den=0.0001','*');
+                'attempted=1' & 'replay=0' & 'floor_den=0.0001','*');
             if numel(trials) >= analysisprs.mintrialsforstats
                 stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);
                 selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
@@ -166,7 +166,7 @@ classdef StatsBehaviour < dj.Computed
             %% density 0.000001 trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                'attempted=1' & 'floor_den=0.000001','*');
+                'attempted=1' & 'replay=0' & 'floor_den=0.000001','*');
             if numel(trials) >= analysisprs.mintrialsforstats
                 stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);                
                 selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
@@ -186,7 +186,7 @@ classdef StatsBehaviour < dj.Computed
             %% gain 1x trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                'attempted=1' & 'v_gain=1','*');
+                'attempted=1' & 'replay=0' & 'v_gain=1','*');
             if numel(trials) >= analysisprs.mintrialsforstats
                 stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);                
                 selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
@@ -206,7 +206,7 @@ classdef StatsBehaviour < dj.Computed
             %% gain 1.5x trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                'attempted=1' & 'v_gain=1.5','*');
+                'attempted=1' & 'replay=0' & 'v_gain=1.5','*');
             if numel(trials) >= analysisprs.mintrialsforstats
                 stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);                
                 selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
@@ -226,7 +226,7 @@ classdef StatsBehaviour < dj.Computed
             %% gain 2x trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                'attempted=1' & 'v_gain=2','*');
+                'attempted=1' & 'replay=0' & 'v_gain=2','*');
             if numel(trials) >= analysisprs.mintrialsforstats
                 stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);                
                 selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
@@ -246,7 +246,7 @@ classdef StatsBehaviour < dj.Computed
             %% firefly OFF trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                'attempted=1' & 'firefly_on=0','*');
+                'attempted=1' & 'replay=0' & 'firefly_on=0','*');
             stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);            
             selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
             for i=1:length(selfAttributes)
@@ -261,7 +261,7 @@ classdef StatsBehaviour < dj.Computed
             %% firefly ON trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                'attempted=1' & 'firefly_on=1','*');
+                'attempted=1' & 'replay=0' & 'firefly_on=1','*');
             stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);            
             selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
             for i=1:length(selfAttributes)
@@ -276,7 +276,7 @@ classdef StatsBehaviour < dj.Computed
             %% unrewarded trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                'attempted=1' & 'rewarded=0','*');
+                'attempted=1' & 'replay=0' & 'rewarded=0','*');
             stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);            
             selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
             for i=1:length(selfAttributes)
@@ -291,7 +291,7 @@ classdef StatsBehaviour < dj.Computed
             %% rewarded trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                'attempted=1' & 'rewarded=1','*');
+                'attempted=1' & 'replay=0' & 'rewarded=1','*');
             stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);            
             selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
             for i=1:length(selfAttributes)
@@ -306,7 +306,7 @@ classdef StatsBehaviour < dj.Computed
             %% unperturbed trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                'attempted=1' & 'perturbed=0','*');
+                'attempted=1' & 'replay=0' & 'perturbed=0','*');
             if numel(trials) >= analysisprs.mintrialsforstats
                 stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);                
                 selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
@@ -326,7 +326,7 @@ classdef StatsBehaviour < dj.Computed
             %% perturbed trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
-                'attempted=1' & 'perturbed=1','*');
+                'attempted=1' & 'replay=0' & 'perturbed=1','*');
             if numel(trials) >= analysisprs.mintrialsforstats
                 stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);                
                 selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
@@ -341,6 +341,26 @@ classdef StatsBehaviour < dj.Computed
                     key.session_date,key.monk_name);
             else
                 fprintf('Not enough trials to populate behavioural stats across perturbed trials for experiment done on %s with monkey %s \n',...
+                    key.session_date,key.monk_name);
+            end
+            %% replay trials
+            trials = fetch(firefly.TrialBehaviour &...
+                ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
+                'attempted=1' & 'replay=1','*');
+            if numel(trials) >= analysisprs.mintrialsforstats
+                stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);
+                selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
+                for i=1:length(selfAttributes)
+                    if any(strcmpi(fields(stats),selfAttributes{i}))
+                        key.(selfAttributes{i}) = stats.(selfAttributes{i});
+                    end
+                end
+                key.trial_type = 'replay';
+                self.insert(key);
+                fprintf('Populated behavioural stats across replay trials for experiment done on %s with monkey %s \n',...
+                    key.session_date,key.monk_name);
+            else
+                fprintf('Not enough trials to populate behavioural stats across replay trials for experiment done on %s with monkey %s \n',...
                     key.session_date,key.monk_name);
             end
         end

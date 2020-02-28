@@ -60,8 +60,11 @@ classdef Behaviour < dj.Imported
             
             prs = fetch(firefly.DataAcquisitionParam,'*');
             analysisprs = fetch(firefly.AnalysisParam,'*'); analysisprs.eyechannels = eyechannels;
-            [chdata,chnames,eventdata,eventnames,ntrialevents] = PrepareSMRData(filepath,prs,analysisprs);      % prepare SMR data
-            [paramnames,paramvals] = PrepareLogData(filepath,ntrialevents);                                                  % prepare log data 
+            ntrialevents = CountSMREvents(filepath);
+            % prepare log data 
+            [paramnames,paramvals] = PrepareLogData(filepath,ntrialevents);
+            % prepare SMR data 
+            [chdata,chnames,eventdata,eventnames] = PrepareSMRData(filepath,prs,analysisprs,paramnames,paramvals);
             selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
             for i=1:length(selfAttributes)
                 if any(strcmp(chnames,selfAttributes{i}))
