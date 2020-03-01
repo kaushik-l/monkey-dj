@@ -1,5 +1,13 @@
 function trials = AddLOGData(file)
 
+% the logic of this function is complicated because of several changes
+% that were made to the format of the log files since the experiment's
+% inception -- (i) log file without randomizing intertrial/waiting time, 
+% (ii) log file randomizing intertrial/waiting time, (iii) log file with
+% floor lifetime enabled on a trial-by-trial basis, (iv) log files
+% containing firely position present where several previous fields were
+% no longer present at the beginning
+
 count = 0;
 fid = fopen(file, 'r');
 eof=0; newline = 'nothingnew'; count=0;
@@ -89,15 +97,19 @@ while newline ~= -1
     end
     %% check for fixed ground
     if newline == -1, break; end
-    if isempty(fixed_ground)
-        while ~strcmp(newline(1:9),'Enable Li')
-            newline = fgetl(fid);
+    if ~strcmp(newline(1:9),'Trial Num')        
+        if isempty(fixed_ground)
+            while ~strcmp(newline(1:9),'Enable Li')
+                newline = fgetl(fid);
+            end
+            trials(count).logical.landmark_fixedground = logical(1 - str2double(newline(18)));
         end
-        trials(count).logical.landmark_fixedground = logical(1 - str2double(newline(18)));
+    else
+        trials(count).logical.landmark_fixedground = false;
     end
     %% firefly position if available
     newline = fgetl(fid);
-    if strcmp(newline(1:7),'Firefly') &&  (str2double(newline(9))==0 || str2double(newline(9))==1)
+    if all(newline ~= -1) && strcmp(newline(1:7),'Firefly') &&  (str2double(newline(9))==0 || str2double(newline(9))==1)
         FFparams = split(newline,' ');
         trials(count).prs.xfp = str2double(FFparams{7}); 
         trials(count).prs.yfp = str2double(FFparams{8});

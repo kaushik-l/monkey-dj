@@ -23,6 +23,7 @@ insert(firefly.Session,{'Schro','2018-02-27',44,'Erin Neyhart'});
 insert(firefly.Session,{'Schro','2018-02-28',45,'Erin Neyhart'});
 insert(firefly.Session,{'Schro','2018-03-01',46,'Erin Neyhart'});
 insert(firefly.Session,{'Schro','2018-03-02',47,'Erin Neyhart'});
+insert(firefly.Session,{'Quigley','2017-02-24',60,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-02-25',61,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-02-27',62,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-02-28',63,'Erin Neyhart'});

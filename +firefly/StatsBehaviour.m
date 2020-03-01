@@ -262,17 +262,22 @@ classdef StatsBehaviour < dj.Computed
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...
                 'attempted=1' & 'replay=0' & 'firefly_on=1','*');
-            stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);            
-            selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
-            for i=1:length(selfAttributes)
-                if any(strcmpi(fields(stats),selfAttributes{i}))
-                    key.(selfAttributes{i}) = stats.(selfAttributes{i});
+            if numel(trials) >= analysisprs.mintrialsforstats
+                stats = AnalyseBehaviour(trials,analysisprs,stimulusprs);
+                selfAttributes = {self.header.attributes.name}; % think self.header.attributes.name is internal to dj
+                for i=1:length(selfAttributes)
+                    if any(strcmpi(fields(stats),selfAttributes{i}))
+                        key.(selfAttributes{i}) = stats.(selfAttributes{i});
+                    end
                 end
+                key.trial_type = 'fireflyon';
+                self.insert(key);
+                fprintf('Populated behavioural stats across visible firefly trials for experiment done on %s with monkey %s \n',...
+                    key.session_date,key.monk_name);
+            else
+                fprintf('Not enough trials to populate behavioural stats across visible firefly trials for experiment done on %s with monkey %s \n',...
+                    key.session_date,key.monk_name);
             end
-            key.trial_type = 'fireflyon';
-            self.insert(key);
-            fprintf('Populated behavioural stats across visible firefly trials for experiment done on %s with monkey %s \n',...
-                key.session_date,key.monk_name);
             %% unrewarded trials
             trials = fetch(firefly.TrialBehaviour &...
                 ['session_id = ' num2str(key.session_id)] & ['monk_name = ' '"' key.monk_name '"'] &...

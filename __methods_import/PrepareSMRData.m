@@ -42,7 +42,7 @@ for block = 1:nblocks
         chno.yle = find(strcmp(ch_title,'LDy')); chno.zle = find(strcmp(ch_title,'LDz'));
         chno.yre = find(strcmp(ch_title,'RDy')); chno.zre = find(strcmp(ch_title,'RDz'));
         chno.xfp = find(strcmp(ch_title,'FireflyX')); chno.yfp = find(strcmp(ch_title,'FireflyY'));
-        chno.FFDraw = find(strcmp(ch_title,'FFDraw'));
+        if any(any(strcmp(ch_title,'FFDraw'))), chno.FFDraw = find(strcmp(ch_title,'FFDraw')); end
         chno.xmp = find(strcmp(ch_title,'MonkeyX')); chno.ymp = find(strcmp(ch_title,'MonkeyY'));
         chno.v = find(strcmp(ch_title,'ForwardV')); chno.w = find(strcmp(ch_title,'AngularV'));
         chno.mrk = find(strcmp(ch_title,'marker'));
