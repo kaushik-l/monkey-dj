@@ -3,15 +3,31 @@ function ntrialevents = CountSMREvents(filepath)
 cd(filepath);
 
 %% list all files to read
-flist_log=dir('*.log'); 
-for i=1:length(flist_log), fnum_log(i) = str2num(flist_log(i).name(end-6:end-4)); end
+flist_log=dir('*.log');
+for i=1:length(flist_log)
+    if any(strfind(flist_log(i).name,'_'))
+        nameparts = split(flist_log(i).name,'_');
+        fnum_log(i) = datenum((cellfun(@(x) str2num(x),...
+            [split(nameparts{2},'-') ; split(nameparts{3}(1:end-4),'-')]))');
+    else
+        fnum_log(i) = str2num(flist_log(i).name(end-6:end-4));
+    end
+end
 flist_smr=dir('*.smr');
-for i=1:length(flist_smr), fnum_smr(i) = str2num(flist_smr(i).name(end-6:end-4)); end
+for i=1:length(flist_smr)
+    if any(strfind(flist_smr(i).name,'_'))
+        nameparts = split(flist_smr(i).name,'_');
+        fnum_smr(i) = datenum((cellfun(@(x) str2num(x),...
+            [split(nameparts{2},'-') ; split(nameparts{3}(1:end-4),'-')]))');
+    else
+        fnum_smr(i) = str2num(flist_smr(i).name(end-6:end-4));
+    end
+end
 nblocks = length(flist_log);
 nsmrfiles = length(flist_smr);
 
 for block = 1:nblocks
-    if block<nblocks, indx_smr = find(fnum_smr >= fnum_log(block) & fnum_smr < fnum_log(block+1));
+    if block<nblocks, indx_smr = find(fnum_smr >= (fnum_log(block)-eps) & fnum_smr < (fnum_log(block+1)+eps));
     else indx_smr = find(fnum_smr >= fnum_log(block)); end
     
     trialeventdata = cell(1,sum(indx_smr));

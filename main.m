@@ -23,6 +23,8 @@ insert(firefly.Session,{'Schro','2018-02-27',44,'Erin Neyhart'});
 insert(firefly.Session,{'Schro','2018-02-28',45,'Erin Neyhart'});
 insert(firefly.Session,{'Schro','2018-03-01',46,'Erin Neyhart'});
 insert(firefly.Session,{'Schro','2018-03-02',47,'Erin Neyhart'});
+insert(firefly.Session,{'Schro','2018-03-02',47,'Erin Neyhart'});
+insert(firefly.Session,{'Schro','2018-03-05',48,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-02-24',60,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-02-25',61,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-02-27',62,'Erin Neyhart'});
@@ -46,6 +48,9 @@ insert(firefly.Session,{'Quigley','2017-08-04',148,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-08-08',149,'Erin Neyhart'});
 insert(firefly.Session,{'Quigley','2017-08-09',150,'Erin Neyhart'});
 insert(firefly.Session,{'Sparky','2020-01-31',1,'Sina Salehi'});
+insert(firefly.Session,{'Sparky','2020-02-03',1,'Sina Salehi'});
+insert(firefly.Session,{'Sparky','2020-02-04',1,'Sina Salehi'});
+insert(firefly.Session,{'Viktor','2020-02-25',1,'Stefania Bruni'});
 
 %% populate static tables
 firefly.SessionList;

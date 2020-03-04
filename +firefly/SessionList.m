@@ -36,6 +36,7 @@ classdef SessionList < dj.Lookup
             '53-045' 'firefly-replay' 'Schro' 53 '2018-02-28' 45 0 'C:\Users\jkl9\Documents\Data\firefly-monkey\Schro\Utah array\Feb 28 2018' {'utah2x48'}  [0 0 0] {{'PPC', 'PFC'}} [2 2] {'replay', 'one density, no landmarks, no ptb, random DCI, random ITI'}
             '53-046' 'firefly-replay' 'Schro' 53 '2018-03-01' 46 0 'C:\Users\jkl9\Documents\Data\firefly-monkey\Schro\Utah array\Mar 01 2018' {'utah2x48'}  [0 0 0] {{'PPC', 'PFC'}} [2 2] {'replay', 'one density, no landmarks, no ptb, random DCI, random ITI'}
             '53-047' 'firefly-replay' 'Schro' 53 '2018-03-02' 47 0 'C:\Users\jkl9\Documents\Data\firefly-monkey\Schro\Utah array\Mar 02 2018' {'utah2x48'}  [0 0 0] {{'PPC', 'PFC'}} [2 2] {'replay', 'one density, no landmarks, no ptb, random DCI, random ITI'}
+            '53-048' 'firefly-ptb' 'Schro' 53 '2018-03-05' 48 0 'C:\Users\jkl9\Documents\Data\firefly-monkey\Schro\Utah array\Mar 05 2018' {'utah2x48'}  [0 0 0] {{'PPC', 'PFC'}} [2 2] {'one density, no landmarks, ptb, random DCI, random ITI'}
             '53-091' 'firefly-densities' 'Schro' 53 '2018-07-10' 91 0 'C:\Users\jkl9\Documents\Data\firefly-monkey\Schro\Sim_recordings\Jul 10 2018' {'utah2x48'}  [0 0 0] {{'PPC', 'PFC'}} [2 2] {'two densities, no landmarks, no ptb, random DCI, random ITI'}
             '53-228' 'firefly-densities' 'Schro' 53 '2018-09-06' 228 0 'Z:\Data\Monkey2_newzdrive\Schro\Utah Array\Sep 06 2018' {'linearprobe24','utah2x48'}  [0 0 0] {'MST',{'PPC', 'PFC'}} [2 2] {'two densities, no landmarks, no ptb, random DCI, random ITI'}
             '44-60' 'firefly-densities' 'Quigley' 44 '2017-02-24' 60 0 'C:\Users\jkl9\Documents\Data\firefly-monkey\Quigley\Utah array\Feb 24 2017' {'utah96'}  [0 0 0] {'PPC'} [1 1] {'four densities, no landmarks, no ptb, fixed DCI, fixed ITI'}
@@ -61,6 +62,16 @@ classdef SessionList < dj.Lookup
             '44-149' 'firefly-densities' 'Quigley' 44 '2017-08-08' 149 0 'C:\Users\jkl9\Documents\Data\firefly-monkey\Quigley\Utah array\Aug 08 2017' {'utah96'}  [0 0 0] {'PPC'} [1 0] {'four densities, no landmarks, no ptb, random DCI, random ITI'}
             '44-150' 'firefly-densities' 'Quigley' 44 '2017-08-09' 150 0 'C:\Users\jkl9\Documents\Data\firefly-monkey\Quigley\Utah array\Aug 09 2017' {'utah96'}  [0 0 0] {'PPC'} [1 0] {'four densities, no landmarks, no ptb, random DCI, random ITI'}
             '70-001' 'firefly' 'Sparky' 70 '2020-01-31' 1 0 'C:\Users\jkl9\Documents\Data\firefly-monkey\Sparky\Training\Jan 31 2020' {[]} [0 0 0] {[]} [0 0] {'polarizer, fixed density, no landmarks, no ptb, random DCI, random ITI'}
+            '70-002' 'firefly' 'Sparky' 70 '2020-02-03' 2 0 'D:\Data\Sparky\Feb 03 2020' {[]} [0 0 0] {[]} [0 0] {'polarizer, fixed density, no landmarks, no ptb, random DCI, random ITI'}
+            '70-003' 'firefly' 'Sparky' 70 '2020-02-04' 3 0 'D:\Data\Sparky\Feb 04 2020' {[]} [0 0 0] {[]} [0 0] {'polarizer, fixed density, no landmarks, no ptb, random DCI, random ITI'}
+            '70-004' 'firefly' 'Sparky' 70 '2020-02-05' 4 0 'D:\Data\Sparky\Feb 05 2020' {[]} [0 0 0] {[]} [0 0] {'polarizer, fixed density, no landmarks, no ptb, random DCI, random ITI'}
+            '70-005' 'firefly' 'Sparky' 70 '2020-02-06' 5 0 'D:\Data\Sparky\Feb 06 2020' {[]} [0 0 0] {[]} [0 0] {'polarizer, fixed density, no landmarks, no ptb, random DCI, random ITI'}
+            '70-006' 'firefly' 'Sparky' 70 '2020-02-07' 6 0 'D:\Data\Sparky\Feb 07 2020' {[]} [0 0 0] {[]} [0 0] {'polarizer, fixed density, no landmarks, no ptb, random DCI, random ITI'}
+            '70-007' 'firefly' 'Sparky' 70 '2020-02-10' 7 0 'D:\Data\Sparky\Feb 10 2020' {[]} [0 0 0] {[]} [0 0] {'polarizer, fixed density, no landmarks, no ptb, random DCI, random ITI'}
+            '70-008' 'firefly' 'Sparky' 70 '2020-02-11' 8 0 'D:\Data\Sparky\Feb 11 2020' {[]} [0 0 0] {[]} [0 0] {'polarizer, fixed density, no landmarks, no ptb, random DCI, random ITI'}
+            '70-009' 'firefly' 'Sparky' 70 '2020-02-12' 9 0 'D:\Data\Sparky\Feb 12 2020' {[]} [0 0 0] {[]} [0 0] {'polarizer, fixed density, no landmarks, no ptb, random DCI, random ITI'}
+            '71-001' 'firefly' 'Viktor' 71 '2020-02-24' 2 0 'D:\Data\Viktor\20200224\smr' {[]} [0 0 0] {[]} [0 0] {'polarizer, fixed density, no landmarks, no ptb, random DCI, random ITI'}
+            '71-002' 'firefly' 'Viktor' 71 '2020-02-25' 2 0 'C:\Users\jkl9\Documents\Data\firefly-monkey\Viktor\Training\Feb 25 2020' {[]} [0 0 0] {[]} [0 0] {'polarizer, fixed density, no landmarks, no ptb, random DCI, random ITI'}
         }
     end
 end

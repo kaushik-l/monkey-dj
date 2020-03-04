@@ -23,7 +23,7 @@ ntrials = numel(tend);
 %% gather fieldnames
 fieldnames = fields(behv_data);
 fieldnames_continuous = fieldnames(cellfun(@(k) (length(behv_data.(k))==length(behv_data.behv_time)) ||...
-    strcmp(char(behv_data.(k)),'0'), fieldnames));
+    (strcmp(char(behv_data.(k)),'0') && ~strcmp(k,'session_id')), fieldnames));
 fieldnames_discrete = fieldnames(cellfun(@(k) (length(behv_data.(k)) > ntrials-10 &&...
     length(behv_data.(k)) < ntrials+10), fieldnames));
 ntrlslog = numel(behv_data.(fieldnames_discrete{1}));

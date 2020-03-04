@@ -8,10 +8,26 @@ xfp = paramvals(strcmp(paramnames,'xfp'),:);
 yfp = paramvals(strcmp(paramnames,'yfp'),:);
 
 %% list all files to read
-flist_log=dir('*.log'); 
-for i=1:length(flist_log), fnum_log(i) = str2num(flist_log(i).name(end-6:end-4)); end
+flist_log=dir('*.log');
+for i=1:length(flist_log)
+    if any(strfind(flist_log(i).name,'_'))
+        nameparts = split(flist_log(i).name,'_');
+        fnum_log(i) = datenum((cellfun(@(x) str2num(x),...
+            [split(nameparts{2},'-') ; split(nameparts{3}(1:end-4),'-')]))');
+    else
+        fnum_log(i) = str2num(flist_log(i).name(end-6:end-4));
+    end
+end
 flist_smr=dir('*.smr');
-for i=1:length(flist_smr), fnum_smr(i) = str2num(flist_smr(i).name(end-6:end-4)); end
+for i=1:length(flist_smr)
+    if any(strfind(flist_smr(i).name,'_'))
+        nameparts = split(flist_smr(i).name,'_');
+        fnum_smr(i) = datenum((cellfun(@(x) str2num(x),...
+            [split(nameparts{2},'-') ; split(nameparts{3}(1:end-4),'-')]))');
+    else
+        fnum_smr(i) = str2num(flist_smr(i).name(end-6:end-4));
+    end
+end
 nblocks = length(flist_log);
 nsmrfiles = length(flist_smr);
 
